@@ -1,0 +1,19 @@
+idf_component_register(
+	SRCS
+		"src/badge_elf.c"
+		"src/kbelfx.c"
+		"src/kbelf_lib.c"
+		"kbelf/src/port/riscv.c"
+		"kbelf/src/kbelf_dyn.c"
+		"kbelf/src/kbelf_file.c"
+		"kbelf/src/kbelf_inst.c"
+		"kbelf/src/kbelf_reloc.c"
+		"kbelf/src/kbelf.c"
+	INCLUDE_DIRS
+		"include"
+		"kbelf/include"
+	REQUIRES
+		"pax-gfx"
+		"badge-bsp"
+		"freertos"
+)
