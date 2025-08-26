@@ -4,71 +4,21 @@
 # Be aware that C++ symbols need to be mangled before adding to this file.
 
 
-# ---- Badge BSP ---- #
+# ---- BadgeELF API ---- #
 
-# "bsp/audio.h"
-bsp_battery_is_charging
-bsp_battery_get_voltage
+# "asp/display.h"
+asp_disp_get_params
+asp_disp_get_fb
+asp_disp_get_pax_buf
+asp_disp_init_pax_buf
+asp_disp_write
+asp_disp_write_pax
+asp_disp_write_part
+asp_disp_write_part_pax
 
-# "bsp/battery.h"
-bsp_audio_get_volume
-bsp_audio_set_volume
-bsp_audio_set_amplifier
-bsp_audio_get_i2s_handle
-
-# "bsp/device.h"
-bsp_device_get_name
-bsp_device_get_manufacturer
-bsp_device_get_initialized_without_coprocessor
-
-# "bsp/display.h"
-bsp_display_get_parameters
-bsp_display_get_panel
-bsp_display_get_panel_io
-bsp_display_get_default_rotation
-bsp_display_get_backlight_brightness
-bsp_display_set_backlight_brightness
-bsp_display_get_tearing_effect_mode
-bsp_display_set_tearing_effect_mode
-bsp_display_get_tearing_effect_semaphore
-
-# "bsp/i2c.h"
-bsp_i2c_primary_bus_get_handle
-bsp_i2c_primary_bus_get_semaphore
-bsp_i2c_primary_bus_claim
-bsp_i2c_primary_bus_release
-
-# "bsp/input.h"
-bsp_input_get_queue
-bsp_input_needs_on_screen_keyboard
-bsp_input_get_backlight_brightness
-bsp_input_set_backlight_brightness
-bsp_input_read_navigation_key
-bsp_input_read_action
-
-# "bsp/led.h"
-bsp_led_write
-
-# "bsp/power.h"
-bsp_power_get_battery_information
-bsp_power_get_battery_voltage
-bsp_power_get_system_voltage
-bsp_power_get_input_voltage
-bsp_power_get_charging_configuration
-bsp_power_configure_charging
-bsp_power_get_usb_host_boost_enabled
-bsp_power_set_usb_host_boost_enabled
-bsp_power_get_radio_state
-bsp_power_set_radio_state
-bsp_power_off
-bsp_rtc_get_time
-
-# "bsp/rtc.h"
-bsp_rtc_set_time
-bsp_rtc_update_time
-bsp_rtc_get_alarm
-bsp_rtc_set_alarm
-
+# "asp/err.h"
+asp_err_id
+asp_err_desc
 
 # ---- PAX graphics core ---- #
 
@@ -109,6 +59,8 @@ pax_buf_reversed
 pax_buf_destroy
 pax_buf_get_width
 pax_buf_get_height
+pax_buf_get_widthf
+pax_buf_get_heightf
 # pax_buf_get_dims
 # pax_buf_get_width_raw
 # pax_buf_get_height_raw
@@ -247,51 +199,29 @@ pax_load_font
 pax_store_font
 # pax_draw_text_adv
 # pax_text_size_adv
-
-
-# ---- FreeRTOS ---- #
-
-# "freertos/queue.h"
-xQueueGenericCreate
-xQueueGenericCreateStatic
-xQueueGenericSend
-xQueuePeek
-xQueueReceive
-uxQueueSpacesAvailable
-vQueueDelete
-xQueueCreateMutex
-xQueueCreateMutexStatic
-xQueueCreateCountingSemaphore
-xQueueCreateCountingSemaphoreStatic
-xQueueSemaphoreTake
-xQueueGetMutexHolder
-xQueueTakeMutexRecursive
-xQueueGiveMutexRecursive
-xQueueCreateSet
-xQueueAddToSet
-xQueueRemoveFromSet
-xQueueSelectFromSet
-
-# "freertos/task.h"
-xTaskCreatePinnedToCore
-vTaskDelete
-vTaskDelay
-xTaskDelayUntil
-xTaskAbortDelay
-uxTaskPriorityGet
-eTaskGetState
-vTaskPrioritySet
-vTaskSuspend
-vTaskResume
-xTaskGetTickCount
-uxTaskGetNumberOfTasks
-pcTaskGetName
-xTaskGetHandle
-xTaskGenericNotify
-xTaskGenericNotifyWait
+pax_draw_text
+pax_text_size
 
 
 # ---- C standard library ---- #
+
+# <sys/errno.h>
+__errno
+
+# <sys/fcntl.h>
+open
+creat
+fcntl
+
+# <sys/unistd.h>
+usleep
+rmdir
+unlink
+
+# <sys/stat.h>
+mkdir
+fstat
+stat
 
 # <string.h>
 memchr

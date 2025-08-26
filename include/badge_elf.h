@@ -4,5 +4,7 @@
 
 #pragma once
 
+#include <stdbool.h>
+
 // Start an ELF-based application.
-void badge_elf_start(char const* elf_path);
+bool badge_elf_start(char const* elf_path);

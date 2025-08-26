@@ -122,7 +122,7 @@ long kbelfx_read(void* fd, void* buf, long buf_len) {
 // User-defined.
 long kbelfx_load(kbelf_inst inst, void* fd, kbelf_laddr laddr, kbelf_laddr file_size, kbelf_laddr mem_size) {
     (void)inst;
-    ESP_LOGI(TAG, "Loading %d bytes from %d to %p", (int)file_size, (int)ftell(fd), (void*)laddr);
+    ESP_LOGI(TAG, "Loading 0x%x bytes from 0x%x to %p", (int)file_size, (int)ftell(fd), (void*)laddr);
     memset((void*)(laddr + file_size), 0, mem_size - file_size);
     return fread((void*)laddr, 1, file_size, fd);
 }

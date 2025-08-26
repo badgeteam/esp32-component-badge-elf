@@ -3,51 +3,16 @@
 
 #include <kbelf.h>
 
-extern char const symbol_bsp_battery_is_charging[] asm("bsp_battery_is_charging");
-extern char const symbol_bsp_battery_get_voltage[] asm("bsp_battery_get_voltage");
-extern char const symbol_bsp_audio_get_volume[] asm("bsp_audio_get_volume");
-extern char const symbol_bsp_audio_set_volume[] asm("bsp_audio_set_volume");
-extern char const symbol_bsp_audio_set_amplifier[] asm("bsp_audio_set_amplifier");
-extern char const symbol_bsp_audio_get_i2s_handle[] asm("bsp_audio_get_i2s_handle");
-extern char const symbol_bsp_device_get_name[] asm("bsp_device_get_name");
-extern char const symbol_bsp_device_get_manufacturer[] asm("bsp_device_get_manufacturer");
-extern char const symbol_bsp_device_get_initialized_without_coprocessor[] asm("bsp_device_get_initialized_without_coprocessor");
-extern char const symbol_bsp_display_get_parameters[] asm("bsp_display_get_parameters");
-extern char const symbol_bsp_display_get_panel[] asm("bsp_display_get_panel");
-extern char const symbol_bsp_display_get_panel_io[] asm("bsp_display_get_panel_io");
-extern char const symbol_bsp_display_get_default_rotation[] asm("bsp_display_get_default_rotation");
-extern char const symbol_bsp_display_get_backlight_brightness[] asm("bsp_display_get_backlight_brightness");
-extern char const symbol_bsp_display_set_backlight_brightness[] asm("bsp_display_set_backlight_brightness");
-extern char const symbol_bsp_display_get_tearing_effect_mode[] asm("bsp_display_get_tearing_effect_mode");
-extern char const symbol_bsp_display_set_tearing_effect_mode[] asm("bsp_display_set_tearing_effect_mode");
-extern char const symbol_bsp_display_get_tearing_effect_semaphore[] asm("bsp_display_get_tearing_effect_semaphore");
-extern char const symbol_bsp_i2c_primary_bus_get_handle[] asm("bsp_i2c_primary_bus_get_handle");
-extern char const symbol_bsp_i2c_primary_bus_get_semaphore[] asm("bsp_i2c_primary_bus_get_semaphore");
-extern char const symbol_bsp_i2c_primary_bus_claim[] asm("bsp_i2c_primary_bus_claim");
-extern char const symbol_bsp_i2c_primary_bus_release[] asm("bsp_i2c_primary_bus_release");
-extern char const symbol_bsp_input_get_queue[] asm("bsp_input_get_queue");
-extern char const symbol_bsp_input_needs_on_screen_keyboard[] asm("bsp_input_needs_on_screen_keyboard");
-extern char const symbol_bsp_input_get_backlight_brightness[] asm("bsp_input_get_backlight_brightness");
-extern char const symbol_bsp_input_set_backlight_brightness[] asm("bsp_input_set_backlight_brightness");
-extern char const symbol_bsp_input_read_navigation_key[] asm("bsp_input_read_navigation_key");
-extern char const symbol_bsp_input_read_action[] asm("bsp_input_read_action");
-extern char const symbol_bsp_led_write[] asm("bsp_led_write");
-extern char const symbol_bsp_power_get_battery_information[] asm("bsp_power_get_battery_information");
-extern char const symbol_bsp_power_get_battery_voltage[] asm("bsp_power_get_battery_voltage");
-extern char const symbol_bsp_power_get_system_voltage[] asm("bsp_power_get_system_voltage");
-extern char const symbol_bsp_power_get_input_voltage[] asm("bsp_power_get_input_voltage");
-extern char const symbol_bsp_power_get_charging_configuration[] asm("bsp_power_get_charging_configuration");
-extern char const symbol_bsp_power_configure_charging[] asm("bsp_power_configure_charging");
-extern char const symbol_bsp_power_get_usb_host_boost_enabled[] asm("bsp_power_get_usb_host_boost_enabled");
-extern char const symbol_bsp_power_set_usb_host_boost_enabled[] asm("bsp_power_set_usb_host_boost_enabled");
-extern char const symbol_bsp_power_get_radio_state[] asm("bsp_power_get_radio_state");
-extern char const symbol_bsp_power_set_radio_state[] asm("bsp_power_set_radio_state");
-extern char const symbol_bsp_power_off[] asm("bsp_power_off");
-extern char const symbol_bsp_rtc_get_time[] asm("bsp_rtc_get_time");
-extern char const symbol_bsp_rtc_set_time[] asm("bsp_rtc_set_time");
-extern char const symbol_bsp_rtc_update_time[] asm("bsp_rtc_update_time");
-extern char const symbol_bsp_rtc_get_alarm[] asm("bsp_rtc_get_alarm");
-extern char const symbol_bsp_rtc_set_alarm[] asm("bsp_rtc_set_alarm");
+extern char const symbol_asp_disp_get_params[] asm("asp_disp_get_params");
+extern char const symbol_asp_disp_get_fb[] asm("asp_disp_get_fb");
+extern char const symbol_asp_disp_get_pax_buf[] asm("asp_disp_get_pax_buf");
+extern char const symbol_asp_disp_init_pax_buf[] asm("asp_disp_init_pax_buf");
+extern char const symbol_asp_disp_write[] asm("asp_disp_write");
+extern char const symbol_asp_disp_write_pax[] asm("asp_disp_write_pax");
+extern char const symbol_asp_disp_write_part[] asm("asp_disp_write_part");
+extern char const symbol_asp_disp_write_part_pax[] asm("asp_disp_write_part_pax");
+extern char const symbol_asp_err_id[] asm("asp_err_id");
+extern char const symbol_asp_err_desc[] asm("asp_err_desc");
 extern char const symbol_pax_precalc_circle_8[] asm("pax_precalc_circle_8");
 extern char const symbol_pax_precalc_uv_circle_8[] asm("pax_precalc_uv_circle_8");
 extern char const symbol_pax_precalc_circle_16[] asm("pax_precalc_circle_16");
@@ -67,6 +32,8 @@ extern char const symbol_pax_buf_reversed[] asm("pax_buf_reversed");
 extern char const symbol_pax_buf_destroy[] asm("pax_buf_destroy");
 extern char const symbol_pax_buf_get_width[] asm("pax_buf_get_width");
 extern char const symbol_pax_buf_get_height[] asm("pax_buf_get_height");
+extern char const symbol_pax_buf_get_widthf[] asm("pax_buf_get_widthf");
+extern char const symbol_pax_buf_get_heightf[] asm("pax_buf_get_heightf");
 extern char const symbol_pax_buf_get_type[] asm("pax_buf_get_type");
 extern char const symbol_pax_buf_get_pixels[] asm("pax_buf_get_pixels");
 extern char const symbol_pax_buf_get_pixels_rw[] asm("pax_buf_get_pixels_rw");
@@ -169,41 +136,18 @@ extern char const symbol_pax_draw_shape[] asm("pax_draw_shape");
 extern char const symbol_pax_draw_shape_triang[] asm("pax_draw_shape_triang");
 extern char const symbol_pax_load_font[] asm("pax_load_font");
 extern char const symbol_pax_store_font[] asm("pax_store_font");
-extern char const symbol_xQueueGenericCreate[] asm("xQueueGenericCreate");
-extern char const symbol_xQueueGenericCreateStatic[] asm("xQueueGenericCreateStatic");
-extern char const symbol_xQueueGenericSend[] asm("xQueueGenericSend");
-extern char const symbol_xQueuePeek[] asm("xQueuePeek");
-extern char const symbol_xQueueReceive[] asm("xQueueReceive");
-extern char const symbol_uxQueueSpacesAvailable[] asm("uxQueueSpacesAvailable");
-extern char const symbol_vQueueDelete[] asm("vQueueDelete");
-extern char const symbol_xQueueCreateMutex[] asm("xQueueCreateMutex");
-extern char const symbol_xQueueCreateMutexStatic[] asm("xQueueCreateMutexStatic");
-extern char const symbol_xQueueCreateCountingSemaphore[] asm("xQueueCreateCountingSemaphore");
-extern char const symbol_xQueueCreateCountingSemaphoreStatic[] asm("xQueueCreateCountingSemaphoreStatic");
-extern char const symbol_xQueueSemaphoreTake[] asm("xQueueSemaphoreTake");
-extern char const symbol_xQueueGetMutexHolder[] asm("xQueueGetMutexHolder");
-extern char const symbol_xQueueTakeMutexRecursive[] asm("xQueueTakeMutexRecursive");
-extern char const symbol_xQueueGiveMutexRecursive[] asm("xQueueGiveMutexRecursive");
-extern char const symbol_xQueueCreateSet[] asm("xQueueCreateSet");
-extern char const symbol_xQueueAddToSet[] asm("xQueueAddToSet");
-extern char const symbol_xQueueRemoveFromSet[] asm("xQueueRemoveFromSet");
-extern char const symbol_xQueueSelectFromSet[] asm("xQueueSelectFromSet");
-extern char const symbol_xTaskCreatePinnedToCore[] asm("xTaskCreatePinnedToCore");
-extern char const symbol_vTaskDelete[] asm("vTaskDelete");
-extern char const symbol_vTaskDelay[] asm("vTaskDelay");
-extern char const symbol_xTaskDelayUntil[] asm("xTaskDelayUntil");
-extern char const symbol_xTaskAbortDelay[] asm("xTaskAbortDelay");
-extern char const symbol_uxTaskPriorityGet[] asm("uxTaskPriorityGet");
-extern char const symbol_eTaskGetState[] asm("eTaskGetState");
-extern char const symbol_vTaskPrioritySet[] asm("vTaskPrioritySet");
-extern char const symbol_vTaskSuspend[] asm("vTaskSuspend");
-extern char const symbol_vTaskResume[] asm("vTaskResume");
-extern char const symbol_xTaskGetTickCount[] asm("xTaskGetTickCount");
-extern char const symbol_uxTaskGetNumberOfTasks[] asm("uxTaskGetNumberOfTasks");
-extern char const symbol_pcTaskGetName[] asm("pcTaskGetName");
-extern char const symbol_xTaskGetHandle[] asm("xTaskGetHandle");
-extern char const symbol_xTaskGenericNotify[] asm("xTaskGenericNotify");
-extern char const symbol_xTaskGenericNotifyWait[] asm("xTaskGenericNotifyWait");
+extern char const symbol_pax_draw_text[] asm("pax_draw_text");
+extern char const symbol_pax_text_size[] asm("pax_text_size");
+extern char const symbol___errno[] asm("__errno");
+extern char const symbol_open[] asm("open");
+extern char const symbol_creat[] asm("creat");
+extern char const symbol_fcntl[] asm("fcntl");
+extern char const symbol_usleep[] asm("usleep");
+extern char const symbol_rmdir[] asm("rmdir");
+extern char const symbol_unlink[] asm("unlink");
+extern char const symbol_mkdir[] asm("mkdir");
+extern char const symbol_fstat[] asm("fstat");
+extern char const symbol_stat[] asm("stat");
 extern char const symbol_memchr[] asm("memchr");
 extern char const symbol_memcmp[] asm("memcmp");
 extern char const symbol_memcpy[] asm("memcpy");
@@ -442,51 +386,16 @@ extern char const symbol_fopencookie[] asm("fopencookie");
 extern char const symbol__fopencookie_r[] asm("_fopencookie_r");
 
 static kbelf_builtin_sym const symbols[] = {
-    { .name = "bsp_battery_is_charging", .vaddr = (size_t) symbol_bsp_battery_is_charging },
-    { .name = "bsp_battery_get_voltage", .vaddr = (size_t) symbol_bsp_battery_get_voltage },
-    { .name = "bsp_audio_get_volume", .vaddr = (size_t) symbol_bsp_audio_get_volume },
-    { .name = "bsp_audio_set_volume", .vaddr = (size_t) symbol_bsp_audio_set_volume },
-    { .name = "bsp_audio_set_amplifier", .vaddr = (size_t) symbol_bsp_audio_set_amplifier },
-    { .name = "bsp_audio_get_i2s_handle", .vaddr = (size_t) symbol_bsp_audio_get_i2s_handle },
-    { .name = "bsp_device_get_name", .vaddr = (size_t) symbol_bsp_device_get_name },
-    { .name = "bsp_device_get_manufacturer", .vaddr = (size_t) symbol_bsp_device_get_manufacturer },
-    { .name = "bsp_device_get_initialized_without_coprocessor", .vaddr = (size_t) symbol_bsp_device_get_initialized_without_coprocessor },
-    { .name = "bsp_display_get_parameters", .vaddr = (size_t) symbol_bsp_display_get_parameters },
-    { .name = "bsp_display_get_panel", .vaddr = (size_t) symbol_bsp_display_get_panel },
-    { .name = "bsp_display_get_panel_io", .vaddr = (size_t) symbol_bsp_display_get_panel_io },
-    { .name = "bsp_display_get_default_rotation", .vaddr = (size_t) symbol_bsp_display_get_default_rotation },
-    { .name = "bsp_display_get_backlight_brightness", .vaddr = (size_t) symbol_bsp_display_get_backlight_brightness },
-    { .name = "bsp_display_set_backlight_brightness", .vaddr = (size_t) symbol_bsp_display_set_backlight_brightness },
-    { .name = "bsp_display_get_tearing_effect_mode", .vaddr = (size_t) symbol_bsp_display_get_tearing_effect_mode },
-    { .name = "bsp_display_set_tearing_effect_mode", .vaddr = (size_t) symbol_bsp_display_set_tearing_effect_mode },
-    { .name = "bsp_display_get_tearing_effect_semaphore", .vaddr = (size_t) symbol_bsp_display_get_tearing_effect_semaphore },
-    { .name = "bsp_i2c_primary_bus_get_handle", .vaddr = (size_t) symbol_bsp_i2c_primary_bus_get_handle },
-    { .name = "bsp_i2c_primary_bus_get_semaphore", .vaddr = (size_t) symbol_bsp_i2c_primary_bus_get_semaphore },
-    { .name = "bsp_i2c_primary_bus_claim", .vaddr = (size_t) symbol_bsp_i2c_primary_bus_claim },
-    { .name = "bsp_i2c_primary_bus_release", .vaddr = (size_t) symbol_bsp_i2c_primary_bus_release },
-    { .name = "bsp_input_get_queue", .vaddr = (size_t) symbol_bsp_input_get_queue },
-    { .name = "bsp_input_needs_on_screen_keyboard", .vaddr = (size_t) symbol_bsp_input_needs_on_screen_keyboard },
-    { .name = "bsp_input_get_backlight_brightness", .vaddr = (size_t) symbol_bsp_input_get_backlight_brightness },
-    { .name = "bsp_input_set_backlight_brightness", .vaddr = (size_t) symbol_bsp_input_set_backlight_brightness },
-    { .name = "bsp_input_read_navigation_key", .vaddr = (size_t) symbol_bsp_input_read_navigation_key },
-    { .name = "bsp_input_read_action", .vaddr = (size_t) symbol_bsp_input_read_action },
-    { .name = "bsp_led_write", .vaddr = (size_t) symbol_bsp_led_write },
-    { .name = "bsp_power_get_battery_information", .vaddr = (size_t) symbol_bsp_power_get_battery_information },
-    { .name = "bsp_power_get_battery_voltage", .vaddr = (size_t) symbol_bsp_power_get_battery_voltage },
-    { .name = "bsp_power_get_system_voltage", .vaddr = (size_t) symbol_bsp_power_get_system_voltage },
-    { .name = "bsp_power_get_input_voltage", .vaddr = (size_t) symbol_bsp_power_get_input_voltage },
-    { .name = "bsp_power_get_charging_configuration", .vaddr = (size_t) symbol_bsp_power_get_charging_configuration },
-    { .name = "bsp_power_configure_charging", .vaddr = (size_t) symbol_bsp_power_configure_charging },
-    { .name = "bsp_power_get_usb_host_boost_enabled", .vaddr = (size_t) symbol_bsp_power_get_usb_host_boost_enabled },
-    { .name = "bsp_power_set_usb_host_boost_enabled", .vaddr = (size_t) symbol_bsp_power_set_usb_host_boost_enabled },
-    { .name = "bsp_power_get_radio_state", .vaddr = (size_t) symbol_bsp_power_get_radio_state },
-    { .name = "bsp_power_set_radio_state", .vaddr = (size_t) symbol_bsp_power_set_radio_state },
-    { .name = "bsp_power_off", .vaddr = (size_t) symbol_bsp_power_off },
-    { .name = "bsp_rtc_get_time", .vaddr = (size_t) symbol_bsp_rtc_get_time },
-    { .name = "bsp_rtc_set_time", .vaddr = (size_t) symbol_bsp_rtc_set_time },
-    { .name = "bsp_rtc_update_time", .vaddr = (size_t) symbol_bsp_rtc_update_time },
-    { .name = "bsp_rtc_get_alarm", .vaddr = (size_t) symbol_bsp_rtc_get_alarm },
-    { .name = "bsp_rtc_set_alarm", .vaddr = (size_t) symbol_bsp_rtc_set_alarm },
+    { .name = "asp_disp_get_params", .vaddr = (size_t) symbol_asp_disp_get_params },
+    { .name = "asp_disp_get_fb", .vaddr = (size_t) symbol_asp_disp_get_fb },
+    { .name = "asp_disp_get_pax_buf", .vaddr = (size_t) symbol_asp_disp_get_pax_buf },
+    { .name = "asp_disp_init_pax_buf", .vaddr = (size_t) symbol_asp_disp_init_pax_buf },
+    { .name = "asp_disp_write", .vaddr = (size_t) symbol_asp_disp_write },
+    { .name = "asp_disp_write_pax", .vaddr = (size_t) symbol_asp_disp_write_pax },
+    { .name = "asp_disp_write_part", .vaddr = (size_t) symbol_asp_disp_write_part },
+    { .name = "asp_disp_write_part_pax", .vaddr = (size_t) symbol_asp_disp_write_part_pax },
+    { .name = "asp_err_id", .vaddr = (size_t) symbol_asp_err_id },
+    { .name = "asp_err_desc", .vaddr = (size_t) symbol_asp_err_desc },
     { .name = "pax_precalc_circle_8", .vaddr = (size_t) symbol_pax_precalc_circle_8 },
     { .name = "pax_precalc_uv_circle_8", .vaddr = (size_t) symbol_pax_precalc_uv_circle_8 },
     { .name = "pax_precalc_circle_16", .vaddr = (size_t) symbol_pax_precalc_circle_16 },
@@ -506,6 +415,8 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "pax_buf_destroy", .vaddr = (size_t) symbol_pax_buf_destroy },
     { .name = "pax_buf_get_width", .vaddr = (size_t) symbol_pax_buf_get_width },
     { .name = "pax_buf_get_height", .vaddr = (size_t) symbol_pax_buf_get_height },
+    { .name = "pax_buf_get_widthf", .vaddr = (size_t) symbol_pax_buf_get_widthf },
+    { .name = "pax_buf_get_heightf", .vaddr = (size_t) symbol_pax_buf_get_heightf },
     { .name = "pax_buf_get_type", .vaddr = (size_t) symbol_pax_buf_get_type },
     { .name = "pax_buf_get_pixels", .vaddr = (size_t) symbol_pax_buf_get_pixels },
     { .name = "pax_buf_get_pixels_rw", .vaddr = (size_t) symbol_pax_buf_get_pixels_rw },
@@ -608,41 +519,18 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "pax_draw_shape_triang", .vaddr = (size_t) symbol_pax_draw_shape_triang },
     { .name = "pax_load_font", .vaddr = (size_t) symbol_pax_load_font },
     { .name = "pax_store_font", .vaddr = (size_t) symbol_pax_store_font },
-    { .name = "xQueueGenericCreate", .vaddr = (size_t) symbol_xQueueGenericCreate },
-    { .name = "xQueueGenericCreateStatic", .vaddr = (size_t) symbol_xQueueGenericCreateStatic },
-    { .name = "xQueueGenericSend", .vaddr = (size_t) symbol_xQueueGenericSend },
-    { .name = "xQueuePeek", .vaddr = (size_t) symbol_xQueuePeek },
-    { .name = "xQueueReceive", .vaddr = (size_t) symbol_xQueueReceive },
-    { .name = "uxQueueSpacesAvailable", .vaddr = (size_t) symbol_uxQueueSpacesAvailable },
-    { .name = "vQueueDelete", .vaddr = (size_t) symbol_vQueueDelete },
-    { .name = "xQueueCreateMutex", .vaddr = (size_t) symbol_xQueueCreateMutex },
-    { .name = "xQueueCreateMutexStatic", .vaddr = (size_t) symbol_xQueueCreateMutexStatic },
-    { .name = "xQueueCreateCountingSemaphore", .vaddr = (size_t) symbol_xQueueCreateCountingSemaphore },
-    { .name = "xQueueCreateCountingSemaphoreStatic", .vaddr = (size_t) symbol_xQueueCreateCountingSemaphoreStatic },
-    { .name = "xQueueSemaphoreTake", .vaddr = (size_t) symbol_xQueueSemaphoreTake },
-    { .name = "xQueueGetMutexHolder", .vaddr = (size_t) symbol_xQueueGetMutexHolder },
-    { .name = "xQueueTakeMutexRecursive", .vaddr = (size_t) symbol_xQueueTakeMutexRecursive },
-    { .name = "xQueueGiveMutexRecursive", .vaddr = (size_t) symbol_xQueueGiveMutexRecursive },
-    { .name = "xQueueCreateSet", .vaddr = (size_t) symbol_xQueueCreateSet },
-    { .name = "xQueueAddToSet", .vaddr = (size_t) symbol_xQueueAddToSet },
-    { .name = "xQueueRemoveFromSet", .vaddr = (size_t) symbol_xQueueRemoveFromSet },
-    { .name = "xQueueSelectFromSet", .vaddr = (size_t) symbol_xQueueSelectFromSet },
-    { .name = "xTaskCreatePinnedToCore", .vaddr = (size_t) symbol_xTaskCreatePinnedToCore },
-    { .name = "vTaskDelete", .vaddr = (size_t) symbol_vTaskDelete },
-    { .name = "vTaskDelay", .vaddr = (size_t) symbol_vTaskDelay },
-    { .name = "xTaskDelayUntil", .vaddr = (size_t) symbol_xTaskDelayUntil },
-    { .name = "xTaskAbortDelay", .vaddr = (size_t) symbol_xTaskAbortDelay },
-    { .name = "uxTaskPriorityGet", .vaddr = (size_t) symbol_uxTaskPriorityGet },
-    { .name = "eTaskGetState", .vaddr = (size_t) symbol_eTaskGetState },
-    { .name = "vTaskPrioritySet", .vaddr = (size_t) symbol_vTaskPrioritySet },
-    { .name = "vTaskSuspend", .vaddr = (size_t) symbol_vTaskSuspend },
-    { .name = "vTaskResume", .vaddr = (size_t) symbol_vTaskResume },
-    { .name = "xTaskGetTickCount", .vaddr = (size_t) symbol_xTaskGetTickCount },
-    { .name = "uxTaskGetNumberOfTasks", .vaddr = (size_t) symbol_uxTaskGetNumberOfTasks },
-    { .name = "pcTaskGetName", .vaddr = (size_t) symbol_pcTaskGetName },
-    { .name = "xTaskGetHandle", .vaddr = (size_t) symbol_xTaskGetHandle },
-    { .name = "xTaskGenericNotify", .vaddr = (size_t) symbol_xTaskGenericNotify },
-    { .name = "xTaskGenericNotifyWait", .vaddr = (size_t) symbol_xTaskGenericNotifyWait },
+    { .name = "pax_draw_text", .vaddr = (size_t) symbol_pax_draw_text },
+    { .name = "pax_text_size", .vaddr = (size_t) symbol_pax_text_size },
+    { .name = "__errno", .vaddr = (size_t) symbol___errno },
+    { .name = "open", .vaddr = (size_t) symbol_open },
+    { .name = "creat", .vaddr = (size_t) symbol_creat },
+    { .name = "fcntl", .vaddr = (size_t) symbol_fcntl },
+    { .name = "usleep", .vaddr = (size_t) symbol_usleep },
+    { .name = "rmdir", .vaddr = (size_t) symbol_rmdir },
+    { .name = "unlink", .vaddr = (size_t) symbol_unlink },
+    { .name = "mkdir", .vaddr = (size_t) symbol_mkdir },
+    { .name = "fstat", .vaddr = (size_t) symbol_fstat },
+    { .name = "stat", .vaddr = (size_t) symbol_stat },
     { .name = "memchr", .vaddr = (size_t) symbol_memchr },
     { .name = "memcmp", .vaddr = (size_t) symbol_memcmp },
     { .name = "memcpy", .vaddr = (size_t) symbol_memcpy },
@@ -883,6 +771,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib = {
     .path        = "libbadge.so",
-    .symbols_len = 437,
+    .symbols_len = 381,
     .symbols     = symbols,
 };
