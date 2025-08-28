@@ -1,3 +1,5 @@
+idf_build_get_property(idf_arch IDF_TARGET_ARCH)
+if("${idf_arch}" STREQUAL "riscv")
 idf_component_register(
 	SRCS
 		"src/badge_elf.c"
@@ -16,3 +18,4 @@ idf_component_register(
 		"badge-elf-api"
 		"freertos"
 )
+endif()
