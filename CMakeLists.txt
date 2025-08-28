@@ -14,7 +14,5 @@ idf_component_register(
 		"kbelf/include"
 	REQUIRES
 		"badge-elf-api"
-		"pax-gfx"
-		"badge-bsp"
 		"freertos"
 )
