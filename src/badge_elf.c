@@ -22,9 +22,11 @@ bool badge_elf_start(char const* elf_path) {
         return false;
     }
 
+#if SOC_CACHE_WRITEBACK_SUPPORTED
     // Sync insn and data caches.
     // TODO: If the ELF loader told us the base and size, this could be more optimal, but this works.
     cache_hal_writeback_addr(SOC_DRAM_LOW, SOC_DRAM_HIGH - SOC_DRAM_LOW);
+#endif
 
     // Run its constructor array.
     size_t preinit_count = kbelf_dyn_preinit_len(dyn);
