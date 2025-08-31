@@ -161,12 +161,18 @@ kbelf_file kbelfx_find_lib(char const* needed) {
     return kbelf_file_open(needed, NULL);
 }
 
-extern kbelf_builtin_lib const badge_elf_lib;
+extern kbelf_builtin_lib const badge_elf_lib_badge;
+extern kbelf_builtin_lib const badge_elf_lib_c;
+extern kbelf_builtin_lib const badge_elf_lib_gcc;
+extern kbelf_builtin_lib const badge_elf_lib_m;
+extern kbelf_builtin_lib const badge_elf_lib_pax_gfx;
+extern kbelf_builtin_lib const badge_elf_lib_pthread;
 
 // Array of built-in libraries.
 // Optional user-defined.
 kbelf_builtin_lib const* kbelfx_builtin_libs[] = {
-    &badge_elf_lib,
+    &badge_elf_lib_badge, &badge_elf_lib_c,       &badge_elf_lib_gcc,
+    &badge_elf_lib_m,     &badge_elf_lib_pax_gfx, &badge_elf_lib_pthread,
 };
 
 // Number of built-in libraries.

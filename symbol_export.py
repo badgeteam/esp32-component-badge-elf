@@ -5,7 +5,7 @@
 import argparse, subprocess
 from tempfile import NamedTemporaryFile as TmpFile
 from elftools.elf.elffile import ELFFile
-from elftools.elf.sections import *
+from elftools.elf.sections import SymbolTableSection
 
 
 
@@ -52,20 +52,21 @@ def asm_lib(symbols: list[tuple[str,str]], out_path: str, assembler: str, asm_fl
     ldscript.write(
     """
     PHDRS {
-        code PT_LOAD;
+        text     PT_LOAD    FLAGS(0x05); /* Execute + Read */
+        dynamic  PT_DYNAMIC FLAGS(0x06); /* Dynamic PHDR for relocations */
     }
 
     SECTIONS {
         .text : {
-            KEEP(*(.text));
-        } :code
+            KEEP(*(.text .text.*));
+        } :text
     }
     """
     )
     ldscript.flush()
     
     with TmpFile("w+", suffix=".S") as asm:
-        asm.write('.text\n')
+        asm.write('.section ".text", "ax"\n')
         asm.write('.option norelax\n')
         asm.write('.option norvc\n')
         for i in range(len(symbols)):
@@ -73,7 +74,7 @@ def asm_lib(symbols: list[tuple[str,str]], out_path: str, assembler: str, asm_fl
             asm.write(f'.global {symbol[0]}\n')
             asm.write(f'.type {symbol[0]}, %function\n')
             asm.write(f'{symbol[0]}: // {symbol[1]}\n')
-            asm.write(f'nop\n')
+            asm.write(f'unimp\n')
         asm.flush()
         subprocess.run([
             assembler,
@@ -117,14 +118,15 @@ def asm_table(symbols: list[tuple[str,str]], elf_path: str, out_path: str, assem
     ldscript.write(
     """
     PHDRS {
-        code PT_LOAD;
+        text     PT_LOAD    FLAGS(0x05); /* Execute + Read */
+        dynamic  PT_DYNAMIC FLAGS(0x06); /* Dynamic PHDR for relocations */
     }
 
     SECTIONS {
         . = {};
         .text : {
-            KEEP(*(.text));
-        } :code
+            KEEP(*(.text .text.*));
+        } :text
     }
     """.replace('{}', hex(address))
     )
@@ -137,7 +139,7 @@ def asm_table(symbols: list[tuple[str,str]], elf_path: str, out_path: str, assem
             asm.write('.option norelax\n')
             asm.write('.option norvc\n')
             symtab = elf_file.get_section_by_name(".symtab")
-            addrs = [get_sym_addr(symtab, x[1]) for x in symbols]
+            addrs = [get_sym_addr(symtab, x[1]) for x in symbols] # type: ignore
             for i in range(len(symbols)):
                 symbol = symbols[i]
                 os_vaddr = addrs[i]
