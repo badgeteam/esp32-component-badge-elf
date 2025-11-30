@@ -8,6 +8,11 @@
 #include "hal/cache_hal.h"
 #include "kbelf.h"
 #include "soc/soc.h"
+#include "sdkconfig.h"
+
+#if CONFIG_BOOTLOADER_REGION_PROTECTION_ENABLE
+#error Please disable CONFIG_BOOTLOADER_REGION_PROTECTION_ENABLE
+#endif
 
 static char const TAG[] = "badge-elf";
 

@@ -8,6 +8,7 @@ idf_component_register(
 		"src/kbelf_lib_gcc.c"
 		"src/kbelf_lib_m.c"
 		"src/kbelf_lib_pax_gfx.c"
+		"src/kbelf_lib_pax_codecs.c"
 		"src/kbelf_lib_pthread.c"
 		"src/kbelfx.c"
 		"kbelf/src/port/riscv.c"

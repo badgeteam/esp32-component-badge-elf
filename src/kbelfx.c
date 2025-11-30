@@ -166,13 +166,14 @@ extern kbelf_builtin_lib const badge_elf_lib_c;
 extern kbelf_builtin_lib const badge_elf_lib_gcc;
 extern kbelf_builtin_lib const badge_elf_lib_m;
 extern kbelf_builtin_lib const badge_elf_lib_pax_gfx;
+extern kbelf_builtin_lib const badge_elf_lib_pax_codecs;
 extern kbelf_builtin_lib const badge_elf_lib_pthread;
 
 // Array of built-in libraries.
 // Optional user-defined.
 kbelf_builtin_lib const* kbelfx_builtin_libs[] = {
     &badge_elf_lib_badge, &badge_elf_lib_c,       &badge_elf_lib_gcc,
-    &badge_elf_lib_m,     &badge_elf_lib_pax_gfx, &badge_elf_lib_pthread,
+    &badge_elf_lib_m,     &badge_elf_lib_pax_gfx, &badge_elf_lib_pax_codecs, &badge_elf_lib_pthread,
 };
 
 // Number of built-in libraries.
