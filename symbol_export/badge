@@ -38,3 +38,82 @@ asp_input_get_action
 asp_input_needs_on_screen_keyboard
 asp_input_set_backlight
 asp_input_get_backlight
+
+# "asp/log.h" - Logging API
+asp_log_info
+asp_log_warn
+asp_log_error
+
+# "asp/display.h" - Display flush (extension)
+asp_disp_flush
+asp_disp_flush_region
+
+# "asp/plugin.h" - Plugin Status Widgets
+asp_plugin_status_widget_register
+asp_plugin_status_widget_unregister
+
+# "asp/plugin.h" - Plugin Input Hooks
+asp_plugin_input_poll
+asp_plugin_input_get_key_state
+asp_plugin_input_hook_register
+asp_plugin_input_hook_unregister
+asp_plugin_input_inject
+
+# "asp/led.h" - LED API
+asp_led_set_brightness
+asp_led_get_brightness
+asp_led_set_mode
+asp_led_get_mode
+asp_led_set_pixel
+asp_led_set_pixel_rgb
+asp_led_set_pixel_hsv
+asp_led_send
+asp_led_clear
+
+# "asp/plugin.h" - Plugin Storage (Sandboxed)
+asp_plugin_storage_open
+asp_plugin_storage_read
+asp_plugin_storage_write
+asp_plugin_storage_seek
+asp_plugin_storage_tell
+asp_plugin_storage_close
+asp_plugin_storage_exists
+asp_plugin_storage_mkdir
+asp_plugin_storage_remove
+
+# "asp/plugin.h" - Plugin Timer/Control
+asp_plugin_delay_ms
+asp_plugin_get_tick_ms
+asp_plugin_should_stop
+
+# "asp/plugin.h" - Plugin Menu
+asp_plugin_menu_add_item
+asp_plugin_menu_remove_item
+
+# "asp/plugin.h" - Plugin Events
+asp_plugin_event_register
+asp_plugin_event_unregister
+
+# "asp/net.h" - Network API
+asp_net_is_connected
+asp_http_get
+asp_http_post
+
+# "asp/plugin.h" - Plugin Settings (Sandboxed)
+asp_plugin_settings_get_string
+asp_plugin_settings_set_string
+asp_plugin_settings_get_int
+asp_plugin_settings_set_int
+
+# "asp/power.h" - Power Information API
+asp_power_get_battery_info
+asp_power_get_system_voltage
+asp_power_get_battery_voltage
+asp_power_get_input_voltage
+asp_power_get_charging_config
+asp_power_set_charging
+asp_power_get_usb_boost
+asp_power_set_usb_boost
+
+# Custom fonts used in launcher UI
+chakrapetchmedium
