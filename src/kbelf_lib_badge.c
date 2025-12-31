@@ -65,6 +65,8 @@ extern char const symbol_asp_plugin_menu_add_item[] asm("asp_plugin_menu_add_ite
 extern char const symbol_asp_plugin_menu_remove_item[] asm("asp_plugin_menu_remove_item");
 extern char const symbol_asp_plugin_event_register[] asm("asp_plugin_event_register");
 extern char const symbol_asp_plugin_event_unregister[] asm("asp_plugin_event_unregister");
+extern char const symbol_asp_plugin_show_info_dialog[] asm("asp_plugin_show_info_dialog");
+extern char const symbol_asp_plugin_show_text_dialog[] asm("asp_plugin_show_text_dialog");
 extern char const symbol_asp_net_is_connected[] asm("asp_net_is_connected");
 extern char const symbol_asp_http_get[] asm("asp_http_get");
 extern char const symbol_asp_http_post[] asm("asp_http_post");
@@ -145,6 +147,8 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_plugin_menu_remove_item", .vaddr = (size_t) symbol_asp_plugin_menu_remove_item },
     { .name = "asp_plugin_event_register", .vaddr = (size_t) symbol_asp_plugin_event_register },
     { .name = "asp_plugin_event_unregister", .vaddr = (size_t) symbol_asp_plugin_event_unregister },
+    { .name = "asp_plugin_show_info_dialog", .vaddr = (size_t) symbol_asp_plugin_show_info_dialog },
+    { .name = "asp_plugin_show_text_dialog", .vaddr = (size_t) symbol_asp_plugin_show_text_dialog },
     { .name = "asp_net_is_connected", .vaddr = (size_t) symbol_asp_net_is_connected },
     { .name = "asp_http_get", .vaddr = (size_t) symbol_asp_http_get },
     { .name = "asp_http_post", .vaddr = (size_t) symbol_asp_http_post },
@@ -165,6 +169,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_badge = {
     .path        = "libbadge.so",
-    .symbols_len = 78,
+    .symbols_len = 80,
     .symbols     = symbols,
 };

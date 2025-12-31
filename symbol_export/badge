@@ -94,6 +94,10 @@ asp_plugin_menu_remove_item
 asp_plugin_event_register
 asp_plugin_event_unregister
 
+# "asp/plugin.h" - Plugin Dialogs
+asp_plugin_show_info_dialog
+asp_plugin_show_text_dialog
+
 # "asp/net.h" - Network API
 asp_net_is_connected
 asp_http_get
