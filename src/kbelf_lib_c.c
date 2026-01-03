@@ -16,6 +16,11 @@ extern char const symbol_unlink[] asm("unlink");
 extern char const symbol_mkdir[] asm("mkdir");
 extern char const symbol_fstat[] asm("fstat");
 extern char const symbol_stat[] asm("stat");
+extern char const symbol_opendir[] asm("opendir");
+extern char const symbol_readdir[] asm("readdir");
+extern char const symbol_closedir[] asm("closedir");
+extern char const symbol_strcasecmp[] asm("strcasecmp");
+extern char const symbol_strncasecmp[] asm("strncasecmp");
 extern char const symbol_memchr[] asm("memchr");
 extern char const symbol_memcmp[] asm("memcmp");
 extern char const symbol_memcpy[] asm("memcpy");
@@ -267,6 +272,11 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "mkdir", .vaddr = (size_t) symbol_mkdir },
     { .name = "fstat", .vaddr = (size_t) symbol_fstat },
     { .name = "stat", .vaddr = (size_t) symbol_stat },
+    { .name = "opendir", .vaddr = (size_t) symbol_opendir },
+    { .name = "readdir", .vaddr = (size_t) symbol_readdir },
+    { .name = "closedir", .vaddr = (size_t) symbol_closedir },
+    { .name = "strcasecmp", .vaddr = (size_t) symbol_strcasecmp },
+    { .name = "strncasecmp", .vaddr = (size_t) symbol_strncasecmp },
     { .name = "memchr", .vaddr = (size_t) symbol_memchr },
     { .name = "memcmp", .vaddr = (size_t) symbol_memcmp },
     { .name = "memcpy", .vaddr = (size_t) symbol_memcpy },
@@ -507,6 +517,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_c = {
     .path        = "libc.so",
-    .symbols_len = 249,
+    .symbols_len = 254,
     .symbols     = symbols,
 };

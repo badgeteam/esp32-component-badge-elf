@@ -27,6 +27,15 @@ mkdir
 fstat
 stat
 
+# <dirent.h>
+opendir
+readdir
+closedir
+
+# <strings.h>
+strcasecmp
+strncasecmp
+
 # <string.h>
 memchr
 memcmp
