@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "esp_log.h"
+#include "esp_heap_caps.h"
 #include "kbelf.h"
 
 static char const TAG[] = "kbelfx";
@@ -47,12 +48,19 @@ bool kbelfq_memeq(void const* a, void const* b, size_t nmemb) {
 // Memory allocator function to use for allocating metadata.
 // User-defined.
 void* kbelfx_malloc(size_t len) {
+    // For larger allocations, prefer SPIRAM to preserve internal RAM
+    if (len > 1024) {
+        void* mem = heap_caps_malloc(len, MALLOC_CAP_SPIRAM);
+        if (mem) return mem;
+    }
     return malloc(len);
 }
 
 // Memory allocator function to use for allocating metadata.
 // User-defined.
 void* kbelfx_realloc(void* mem, size_t len) {
+    // Just use standard realloc - heap_caps_realloc can be tricky with
+    // memory that was allocated from a different heap capability
     return realloc(mem, len);
 }
 
@@ -74,16 +82,34 @@ bool kbelfx_seg_alloc(kbelf_inst inst, size_t segs_len, kbelf_segment* segs) {
         if (max_va < segs[i].vaddr_req + segs[i].size) max_va = segs[i].vaddr_req + segs[i].size;
     }
 
-    // Allocate memory as requested.
-    void* memory = aligned_alloc(min_align, max_va - min_va);
-    if (!memory) return false;
+    size_t alloc_size = max_va - min_va;
+
+    // Memory debugging (commented out)
+    // size_t internal_before = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    // ESP_LOGI(TAG, "seg_alloc: requesting %u bytes, internal heap before: %u",
+    //          (unsigned)alloc_size, (unsigned)internal_before);
+
+    // ELF segments contain executable code - must be in executable memory (internal RAM),
+    // NOT SPIRAM which is not executable on ESP32-P4.
+    void* memory = aligned_alloc(min_align, alloc_size);
+
+    if (!memory) {
+        ESP_LOGE(TAG, "seg_alloc: FAILED to allocate %u bytes", (unsigned)alloc_size);
+        return false;
+    }
     segs[0].alloc_cookie = memory;
+
+    // Memory debugging (commented out)
+    // size_t internal_after = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    // ESP_LOGI(TAG, "seg_alloc: allocated %u bytes at %p, internal used: %u (before: %u, after: %u)",
+    //          (unsigned)alloc_size, memory,
+    //          (unsigned)(internal_before - internal_after),
+    //          (unsigned)internal_before, (unsigned)internal_after);
 
     // Update actual virtual address fields.
     size_t offset = (size_t)memory - min_va;
     for (size_t i = 0; i < segs_len; i++) {
         segs[i].laddr = segs[i].vaddr_real = segs[i].vaddr_req + offset;
-        ESP_LOGI(TAG, "Segment %p mapped to %p", (void*)segs[i].vaddr_req, (void*)segs[i].vaddr_real);
     }
 
     return true;
@@ -95,7 +121,20 @@ bool kbelfx_seg_alloc(kbelf_inst inst, size_t segs_len, kbelf_segment* segs) {
 void kbelfx_seg_free(kbelf_inst inst, size_t segs_len, kbelf_segment* segs) {
     (void)inst;
     (void)segs_len;
-    free(segs[0].alloc_cookie);
+    void* cookie = segs[0].alloc_cookie;
+
+    // Memory debugging (commented out)
+    // size_t internal_before = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    // ESP_LOGI(TAG, "seg_free: freeing memory at %p, internal heap before: %u",
+    //          cookie, (unsigned)internal_before);
+
+    free(cookie);
+
+    // Memory debugging (commented out)
+    // size_t internal_after = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    // ESP_LOGI(TAG, "seg_free: done, internal freed: %u (before: %u, after: %u)",
+    //          (unsigned)(internal_after - internal_before),
+    //          (unsigned)internal_before, (unsigned)internal_after);
 }
 
 // Open a binary file for reading.
