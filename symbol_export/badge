@@ -44,10 +44,6 @@ asp_log_info
 asp_log_warn
 asp_log_error
 
-# "asp/display.h" - Display flush (extension)
-asp_disp_flush
-asp_disp_flush_region
-
 # "asp/plugin.h" - Plugin Status Widgets
 asp_plugin_status_widget_register
 asp_plugin_status_widget_unregister
@@ -69,6 +65,10 @@ asp_led_set_pixel_rgb
 asp_led_set_pixel_hsv
 asp_led_send
 asp_led_clear
+
+# "asp/plugin.h" - LED Claim (Tanmatsu-specific)
+asp_plugin_led_claim
+asp_plugin_led_release
 
 # "asp/plugin.h" - Plugin Storage (Sandboxed)
 asp_plugin_storage_open

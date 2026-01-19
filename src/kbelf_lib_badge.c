@@ -31,8 +31,6 @@ extern char const symbol_asp_input_get_backlight[] asm("asp_input_get_backlight"
 extern char const symbol_asp_log_info[] asm("asp_log_info");
 extern char const symbol_asp_log_warn[] asm("asp_log_warn");
 extern char const symbol_asp_log_error[] asm("asp_log_error");
-extern char const symbol_asp_disp_flush[] asm("asp_disp_flush");
-extern char const symbol_asp_disp_flush_region[] asm("asp_disp_flush_region");
 extern char const symbol_asp_plugin_status_widget_register[] asm("asp_plugin_status_widget_register");
 extern char const symbol_asp_plugin_status_widget_unregister[] asm("asp_plugin_status_widget_unregister");
 extern char const symbol_asp_plugin_input_poll[] asm("asp_plugin_input_poll");
@@ -49,6 +47,8 @@ extern char const symbol_asp_led_set_pixel_rgb[] asm("asp_led_set_pixel_rgb");
 extern char const symbol_asp_led_set_pixel_hsv[] asm("asp_led_set_pixel_hsv");
 extern char const symbol_asp_led_send[] asm("asp_led_send");
 extern char const symbol_asp_led_clear[] asm("asp_led_clear");
+extern char const symbol_asp_plugin_led_claim[] asm("asp_plugin_led_claim");
+extern char const symbol_asp_plugin_led_release[] asm("asp_plugin_led_release");
 extern char const symbol_asp_plugin_storage_open[] asm("asp_plugin_storage_open");
 extern char const symbol_asp_plugin_storage_read[] asm("asp_plugin_storage_read");
 extern char const symbol_asp_plugin_storage_write[] asm("asp_plugin_storage_write");
@@ -113,8 +113,6 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_log_info", .vaddr = (size_t) symbol_asp_log_info },
     { .name = "asp_log_warn", .vaddr = (size_t) symbol_asp_log_warn },
     { .name = "asp_log_error", .vaddr = (size_t) symbol_asp_log_error },
-    { .name = "asp_disp_flush", .vaddr = (size_t) symbol_asp_disp_flush },
-    { .name = "asp_disp_flush_region", .vaddr = (size_t) symbol_asp_disp_flush_region },
     { .name = "asp_plugin_status_widget_register", .vaddr = (size_t) symbol_asp_plugin_status_widget_register },
     { .name = "asp_plugin_status_widget_unregister", .vaddr = (size_t) symbol_asp_plugin_status_widget_unregister },
     { .name = "asp_plugin_input_poll", .vaddr = (size_t) symbol_asp_plugin_input_poll },
@@ -131,6 +129,8 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_led_set_pixel_hsv", .vaddr = (size_t) symbol_asp_led_set_pixel_hsv },
     { .name = "asp_led_send", .vaddr = (size_t) symbol_asp_led_send },
     { .name = "asp_led_clear", .vaddr = (size_t) symbol_asp_led_clear },
+    { .name = "asp_plugin_led_claim", .vaddr = (size_t) symbol_asp_plugin_led_claim },
+    { .name = "asp_plugin_led_release", .vaddr = (size_t) symbol_asp_plugin_led_release },
     { .name = "asp_plugin_storage_open", .vaddr = (size_t) symbol_asp_plugin_storage_open },
     { .name = "asp_plugin_storage_read", .vaddr = (size_t) symbol_asp_plugin_storage_read },
     { .name = "asp_plugin_storage_write", .vaddr = (size_t) symbol_asp_plugin_storage_write },
