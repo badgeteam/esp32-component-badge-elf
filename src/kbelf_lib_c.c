@@ -257,6 +257,12 @@ extern char const symbol_funopen[] asm("funopen");
 extern char const symbol__funopen_r[] asm("_funopen_r");
 extern char const symbol_fopencookie[] asm("fopencookie");
 extern char const symbol__fopencookie_r[] asm("_fopencookie_r");
+extern char const symbol_time[] asm("time");
+extern char const symbol_localtime_r[] asm("localtime_r");
+extern char const symbol_gmtime_r[] asm("gmtime_r");
+extern char const symbol_mktime[] asm("mktime");
+extern char const symbol_strftime[] asm("strftime");
+extern char const symbol_difftime[] asm("difftime");
 
 static kbelf_builtin_sym const symbols[] = {
     { .name = "sched_yield", .vaddr = (size_t) symbol_sched_yield },
@@ -513,10 +519,16 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "_funopen_r", .vaddr = (size_t) symbol__funopen_r },
     { .name = "fopencookie", .vaddr = (size_t) symbol_fopencookie },
     { .name = "_fopencookie_r", .vaddr = (size_t) symbol__fopencookie_r },
+    { .name = "time", .vaddr = (size_t) symbol_time },
+    { .name = "localtime_r", .vaddr = (size_t) symbol_localtime_r },
+    { .name = "gmtime_r", .vaddr = (size_t) symbol_gmtime_r },
+    { .name = "mktime", .vaddr = (size_t) symbol_mktime },
+    { .name = "strftime", .vaddr = (size_t) symbol_strftime },
+    { .name = "difftime", .vaddr = (size_t) symbol_difftime },
 };
 
 kbelf_builtin_lib const badge_elf_lib_c = {
     .path        = "libc.so",
-    .symbols_len = 254,
+    .symbols_len = 260,
     .symbols     = symbols,
 };

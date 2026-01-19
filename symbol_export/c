@@ -279,3 +279,11 @@ funopen
 _funopen_r
 fopencookie
 _fopencookie_r
+
+# <time.h>
+time
+localtime_r
+gmtime_r
+mktime
+strftime
+difftime
