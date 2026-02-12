@@ -119,5 +119,13 @@ asp_power_set_charging
 asp_power_get_usb_boost
 asp_power_set_usb_boost
 
+# "asp/i2c.h" - I2C Bus Access
+asp_i2c_open
+asp_i2c_close
+asp_i2c_write
+asp_i2c_read
+asp_i2c_write_read
+asp_i2c_probe
+
 # Custom fonts used in launcher UI
 chakrapetchmedium

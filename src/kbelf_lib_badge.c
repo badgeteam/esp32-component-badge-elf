@@ -82,6 +82,12 @@ extern char const symbol_asp_power_get_charging_config[] asm("asp_power_get_char
 extern char const symbol_asp_power_set_charging[] asm("asp_power_set_charging");
 extern char const symbol_asp_power_get_usb_boost[] asm("asp_power_get_usb_boost");
 extern char const symbol_asp_power_set_usb_boost[] asm("asp_power_set_usb_boost");
+extern char const symbol_asp_i2c_open[] asm("asp_i2c_open");
+extern char const symbol_asp_i2c_close[] asm("asp_i2c_close");
+extern char const symbol_asp_i2c_write[] asm("asp_i2c_write");
+extern char const symbol_asp_i2c_read[] asm("asp_i2c_read");
+extern char const symbol_asp_i2c_write_read[] asm("asp_i2c_write_read");
+extern char const symbol_asp_i2c_probe[] asm("asp_i2c_probe");
 extern char const symbol_chakrapetchmedium[] asm("chakrapetchmedium");
 
 static kbelf_builtin_sym const symbols[] = {
@@ -164,11 +170,17 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_power_set_charging", .vaddr = (size_t) symbol_asp_power_set_charging },
     { .name = "asp_power_get_usb_boost", .vaddr = (size_t) symbol_asp_power_get_usb_boost },
     { .name = "asp_power_set_usb_boost", .vaddr = (size_t) symbol_asp_power_set_usb_boost },
+    { .name = "asp_i2c_open", .vaddr = (size_t) symbol_asp_i2c_open },
+    { .name = "asp_i2c_close", .vaddr = (size_t) symbol_asp_i2c_close },
+    { .name = "asp_i2c_write", .vaddr = (size_t) symbol_asp_i2c_write },
+    { .name = "asp_i2c_read", .vaddr = (size_t) symbol_asp_i2c_read },
+    { .name = "asp_i2c_write_read", .vaddr = (size_t) symbol_asp_i2c_write_read },
+    { .name = "asp_i2c_probe", .vaddr = (size_t) symbol_asp_i2c_probe },
     { .name = "chakrapetchmedium", .vaddr = (size_t) symbol_chakrapetchmedium },
 };
 
 kbelf_builtin_lib const badge_elf_lib_badge = {
     .path        = "libbadge.so",
-    .symbols_len = 80,
+    .symbols_len = 86,
     .symbols     = symbols,
 };
