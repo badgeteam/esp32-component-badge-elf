@@ -38,6 +38,7 @@ extern char const symbol_asp_plugin_input_get_key_state[] asm("asp_plugin_input_
 extern char const symbol_asp_plugin_input_hook_register[] asm("asp_plugin_input_hook_register");
 extern char const symbol_asp_plugin_input_hook_unregister[] asm("asp_plugin_input_hook_unregister");
 extern char const symbol_asp_plugin_input_inject[] asm("asp_plugin_input_inject");
+extern char const symbol_asp_led_get_count[] asm("asp_led_get_count");
 extern char const symbol_asp_led_set_brightness[] asm("asp_led_set_brightness");
 extern char const symbol_asp_led_get_brightness[] asm("asp_led_get_brightness");
 extern char const symbol_asp_led_set_mode[] asm("asp_led_set_mode");
@@ -80,8 +81,8 @@ extern char const symbol_asp_power_get_battery_voltage[] asm("asp_power_get_batt
 extern char const symbol_asp_power_get_input_voltage[] asm("asp_power_get_input_voltage");
 extern char const symbol_asp_power_get_charging_config[] asm("asp_power_get_charging_config");
 extern char const symbol_asp_power_set_charging[] asm("asp_power_set_charging");
-extern char const symbol_asp_power_get_usb_boost[] asm("asp_power_get_usb_boost");
-extern char const symbol_asp_power_set_usb_boost[] asm("asp_power_set_usb_boost");
+extern char const symbol_asp_power_get_usb_host_boost_enabled[] asm("asp_power_get_usb_host_boost_enabled");
+extern char const symbol_asp_power_set_usb_host_boost_enabled[] asm("asp_power_set_usb_host_boost_enabled");
 extern char const symbol_asp_i2c_open[] asm("asp_i2c_open");
 extern char const symbol_asp_i2c_close[] asm("asp_i2c_close");
 extern char const symbol_asp_i2c_write[] asm("asp_i2c_write");
@@ -126,6 +127,7 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_plugin_input_hook_register", .vaddr = (size_t) symbol_asp_plugin_input_hook_register },
     { .name = "asp_plugin_input_hook_unregister", .vaddr = (size_t) symbol_asp_plugin_input_hook_unregister },
     { .name = "asp_plugin_input_inject", .vaddr = (size_t) symbol_asp_plugin_input_inject },
+    { .name = "asp_led_get_count", .vaddr = (size_t) symbol_asp_led_get_count },
     { .name = "asp_led_set_brightness", .vaddr = (size_t) symbol_asp_led_set_brightness },
     { .name = "asp_led_get_brightness", .vaddr = (size_t) symbol_asp_led_get_brightness },
     { .name = "asp_led_set_mode", .vaddr = (size_t) symbol_asp_led_set_mode },
@@ -168,8 +170,8 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_power_get_input_voltage", .vaddr = (size_t) symbol_asp_power_get_input_voltage },
     { .name = "asp_power_get_charging_config", .vaddr = (size_t) symbol_asp_power_get_charging_config },
     { .name = "asp_power_set_charging", .vaddr = (size_t) symbol_asp_power_set_charging },
-    { .name = "asp_power_get_usb_boost", .vaddr = (size_t) symbol_asp_power_get_usb_boost },
-    { .name = "asp_power_set_usb_boost", .vaddr = (size_t) symbol_asp_power_set_usb_boost },
+    { .name = "asp_power_get_usb_host_boost_enabled", .vaddr = (size_t) symbol_asp_power_get_usb_host_boost_enabled },
+    { .name = "asp_power_set_usb_host_boost_enabled", .vaddr = (size_t) symbol_asp_power_set_usb_host_boost_enabled },
     { .name = "asp_i2c_open", .vaddr = (size_t) symbol_asp_i2c_open },
     { .name = "asp_i2c_close", .vaddr = (size_t) symbol_asp_i2c_close },
     { .name = "asp_i2c_write", .vaddr = (size_t) symbol_asp_i2c_write },
@@ -181,6 +183,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_badge = {
     .path        = "libbadge.so",
-    .symbols_len = 86,
+    .symbols_len = 87,
     .symbols     = symbols,
 };
