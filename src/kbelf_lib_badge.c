@@ -75,6 +75,11 @@ extern char const symbol_asp_plugin_settings_get_string[] asm("asp_plugin_settin
 extern char const symbol_asp_plugin_settings_set_string[] asm("asp_plugin_settings_set_string");
 extern char const symbol_asp_plugin_settings_get_int[] asm("asp_plugin_settings_get_int");
 extern char const symbol_asp_plugin_settings_set_int[] asm("asp_plugin_settings_set_int");
+extern char const symbol_asp_orientation_enable_gyroscope[] asm("asp_orientation_enable_gyroscope");
+extern char const symbol_asp_orientation_disable_gyroscope[] asm("asp_orientation_disable_gyroscope");
+extern char const symbol_asp_orientation_enable_accelerometer[] asm("asp_orientation_enable_accelerometer");
+extern char const symbol_asp_orientation_disable_accelerometer[] asm("asp_orientation_disable_accelerometer");
+extern char const symbol_asp_orientation_get[] asm("asp_orientation_get");
 extern char const symbol_asp_power_get_battery_info[] asm("asp_power_get_battery_info");
 extern char const symbol_asp_power_get_system_voltage[] asm("asp_power_get_system_voltage");
 extern char const symbol_asp_power_get_battery_voltage[] asm("asp_power_get_battery_voltage");
@@ -158,6 +163,11 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_plugin_settings_set_string", .vaddr = (size_t) symbol_asp_plugin_settings_set_string },
     { .name = "asp_plugin_settings_get_int", .vaddr = (size_t) symbol_asp_plugin_settings_get_int },
     { .name = "asp_plugin_settings_set_int", .vaddr = (size_t) symbol_asp_plugin_settings_set_int },
+    { .name = "asp_orientation_enable_gyroscope", .vaddr = (size_t) symbol_asp_orientation_enable_gyroscope },
+    { .name = "asp_orientation_disable_gyroscope", .vaddr = (size_t) symbol_asp_orientation_disable_gyroscope },
+    { .name = "asp_orientation_enable_accelerometer", .vaddr = (size_t) symbol_asp_orientation_enable_accelerometer },
+    { .name = "asp_orientation_disable_accelerometer", .vaddr = (size_t) symbol_asp_orientation_disable_accelerometer },
+    { .name = "asp_orientation_get", .vaddr = (size_t) symbol_asp_orientation_get },
     { .name = "asp_power_get_battery_info", .vaddr = (size_t) symbol_asp_power_get_battery_info },
     { .name = "asp_power_get_system_voltage", .vaddr = (size_t) symbol_asp_power_get_system_voltage },
     { .name = "asp_power_get_battery_voltage", .vaddr = (size_t) symbol_asp_power_get_battery_voltage },
@@ -171,6 +181,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_badge = {
     .path        = "libbadge.so",
-    .symbols_len = 81,
+    .symbols_len = 86,
     .symbols     = symbols,
 };

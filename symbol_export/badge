@@ -110,6 +110,13 @@ asp_plugin_settings_set_string
 asp_plugin_settings_get_int
 asp_plugin_settings_set_int
 
+# "asp/orientation.h" - Orientation/IMU API
+asp_orientation_enable_gyroscope
+asp_orientation_disable_gyroscope
+asp_orientation_enable_accelerometer
+asp_orientation_disable_accelerometer
+asp_orientation_get
+
 # "asp/power.h" - Power Information API
 asp_power_get_battery_info
 asp_power_get_system_voltage
