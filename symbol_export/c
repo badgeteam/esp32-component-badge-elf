@@ -27,6 +27,15 @@ mkdir
 fstat
 stat
 
+# <dirent.h>
+opendir
+readdir
+closedir
+
+# <strings.h>
+strcasecmp
+strncasecmp
+
 # <string.h>
 memchr
 memcmp
@@ -270,3 +279,11 @@ funopen
 _funopen_r
 fopencookie
 _fopencookie_r
+
+# <time.h>
+time
+localtime_r
+gmtime_r
+mktime
+strftime
+difftime
