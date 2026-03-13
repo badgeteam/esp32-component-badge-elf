@@ -1,4 +1,4 @@
 targets:
   - esp32p4
 dependencies:
-  badgeteam/badge-elf-api: "0.2.0"
+  badgeteam/badge-elf-api: "^0.4.0"
