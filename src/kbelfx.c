@@ -84,13 +84,12 @@ bool kbelfx_seg_alloc(kbelf_inst inst, size_t segs_len, kbelf_segment* segs) {
 
     size_t alloc_size = max_va - min_va;
 
-    // Memory debugging (commented out)
-    // size_t internal_before = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
-    // ESP_LOGI(TAG, "seg_alloc: requesting %u bytes, internal heap before: %u",
-    //          (unsigned)alloc_size, (unsigned)internal_before);
+#ifdef MEMORY_DEBUG
+    size_t internal_before = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    ESP_LOGI(TAG, "seg_alloc: requesting %u bytes, internal heap before: %u",
+             (unsigned)alloc_size, (unsigned)internal_before);
+#endif
 
-    // ELF segments contain executable code - must be in executable memory (internal RAM),
-    // NOT SPIRAM which is not executable on ESP32-P4.
     void* memory = aligned_alloc(min_align, alloc_size);
 
     if (!memory) {
@@ -99,12 +98,13 @@ bool kbelfx_seg_alloc(kbelf_inst inst, size_t segs_len, kbelf_segment* segs) {
     }
     segs[0].alloc_cookie = memory;
 
-    // Memory debugging (commented out)
-    // size_t internal_after = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
-    // ESP_LOGI(TAG, "seg_alloc: allocated %u bytes at %p, internal used: %u (before: %u, after: %u)",
-    //          (unsigned)alloc_size, memory,
-    //          (unsigned)(internal_before - internal_after),
-    //          (unsigned)internal_before, (unsigned)internal_after);
+#ifdef MEMORY_DEBUG
+    size_t internal_after = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    ESP_LOGI(TAG, "seg_alloc: allocated %u bytes at %p, internal used: %u (before: %u, after: %u)",
+             (unsigned)alloc_size, memory,
+             (unsigned)(internal_before - internal_after),
+             (unsigned)internal_before, (unsigned)internal_after);
+#endif
 
     // Update actual virtual address fields.
     size_t offset = (size_t)memory - min_va;
@@ -123,18 +123,20 @@ void kbelfx_seg_free(kbelf_inst inst, size_t segs_len, kbelf_segment* segs) {
     (void)segs_len;
     void* cookie = segs[0].alloc_cookie;
 
-    // Memory debugging (commented out)
-    // size_t internal_before = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
-    // ESP_LOGI(TAG, "seg_free: freeing memory at %p, internal heap before: %u",
-    //          cookie, (unsigned)internal_before);
+#ifdef MEMORY_DEBUG
+    size_t internal_before = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    ESP_LOGI(TAG, "seg_free: freeing memory at %p, internal heap before: %u",
+             cookie, (unsigned)internal_before);
+#endif
 
     free(cookie);
 
-    // Memory debugging (commented out)
-    // size_t internal_after = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
-    // ESP_LOGI(TAG, "seg_free: done, internal freed: %u (before: %u, after: %u)",
-    //          (unsigned)(internal_after - internal_before),
-    //          (unsigned)internal_before, (unsigned)internal_after);
+#ifdef MEMORY_DEBUG
+    size_t internal_after = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
+    ESP_LOGI(TAG, "seg_free: done, internal freed: %u (before: %u, after: %u)",
+             (unsigned)(internal_after - internal_before),
+             (unsigned)internal_before, (unsigned)internal_after);
+#endif
 }
 
 // Open a binary file for reading.
