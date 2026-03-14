@@ -6,6 +6,8 @@
 #include <string.h>
 #include "esp_log.h"
 #include "esp_heap_caps.h"
+#include "hal/cache_hal.h"
+#include "soc/soc.h"
 #include "kbelf.h"
 
 static char const TAG[] = "kbelfx";
@@ -173,6 +175,20 @@ long kbelfx_load(kbelf_inst inst, void* fd, kbelf_laddr laddr, kbelf_laddr file_
 // User-defined.
 int kbelfx_seek(void* fd, long pos) {
     return fseek(fd, pos, SEEK_SET);
+}
+
+// Synchronize caches for a loaded segment.
+// The I-cache (instruction cache) and D-cache (data cache) are not coherent on
+// RISC-V. Loading ELF code via fread/memset writes through the D-cache, but the
+// I-cache doesn't see those writes. Without explicit writeback and invalidation,
+// the I-cache may serve stale or zero data when the CPU tries to execute the
+// loaded code, causing "Illegal instruction" crashes.
+// User-defined.
+void kbelfx_cache_sync(kbelf_laddr addr, size_t size) {
+#if SOC_CACHE_WRITEBACK_SUPPORTED
+    cache_hal_writeback_addr((uint32_t)addr, size);
+    cache_hal_invalidate_addr((uint32_t)addr, size);
+#endif
 }
 
 // Read bytes from a load address in the program.
