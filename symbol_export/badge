@@ -31,6 +31,10 @@ asp_disp_write_part_pax
 asp_err_id
 asp_err_desc
 
+# "asp/file.h"
+asp_fastopen
+asp_fastclose
+
 # "asp/input.h"
 asp_input_poll
 asp_input_get_nav
