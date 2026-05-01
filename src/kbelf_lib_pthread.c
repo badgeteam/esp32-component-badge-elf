@@ -33,6 +33,7 @@ extern char const symbol_pthread_attr_getdetachstate[] asm("pthread_attr_getdeta
 extern char const symbol_pthread_attr_setdetachstate[] asm("pthread_attr_setdetachstate");
 extern char const symbol_pthread_getschedparam[] asm("pthread_getschedparam");
 extern char const symbol_pthread_setschedparam[] asm("pthread_setschedparam");
+extern char const symbol_pthread_setschedprio[] asm("pthread_setschedprio");
 extern char const symbol_pthread_create[] asm("pthread_create");
 extern char const symbol_pthread_join[] asm("pthread_join");
 extern char const symbol_pthread_detach[] asm("pthread_detach");
@@ -83,6 +84,7 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "pthread_attr_setdetachstate", .vaddr = (size_t) symbol_pthread_attr_setdetachstate },
     { .name = "pthread_getschedparam", .vaddr = (size_t) symbol_pthread_getschedparam },
     { .name = "pthread_setschedparam", .vaddr = (size_t) symbol_pthread_setschedparam },
+    { .name = "pthread_setschedprio", .vaddr = (size_t) symbol_pthread_setschedprio },
     { .name = "pthread_create", .vaddr = (size_t) symbol_pthread_create },
     { .name = "pthread_join", .vaddr = (size_t) symbol_pthread_join },
     { .name = "pthread_detach", .vaddr = (size_t) symbol_pthread_detach },
@@ -105,6 +107,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_pthread = {
     .path        = "libpthread.so",
-    .symbols_len = 48,
+    .symbols_len = 49,
     .symbols     = symbols,
 };

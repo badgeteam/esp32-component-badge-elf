@@ -22,6 +22,8 @@ extern char const symbol_asp_disp_write_part[] asm("asp_disp_write_part");
 extern char const symbol_asp_disp_write_part_pax[] asm("asp_disp_write_part_pax");
 extern char const symbol_asp_err_id[] asm("asp_err_id");
 extern char const symbol_asp_err_desc[] asm("asp_err_desc");
+extern char const symbol_asp_fastopen[] asm("asp_fastopen");
+extern char const symbol_asp_fastclose[] asm("asp_fastclose");
 extern char const symbol_asp_input_poll[] asm("asp_input_poll");
 extern char const symbol_asp_input_get_nav[] asm("asp_input_get_nav");
 extern char const symbol_asp_input_get_action[] asm("asp_input_get_action");
@@ -110,6 +112,8 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "asp_disp_write_part_pax", .vaddr = (size_t) symbol_asp_disp_write_part_pax },
     { .name = "asp_err_id", .vaddr = (size_t) symbol_asp_err_id },
     { .name = "asp_err_desc", .vaddr = (size_t) symbol_asp_err_desc },
+    { .name = "asp_fastopen", .vaddr = (size_t) symbol_asp_fastopen },
+    { .name = "asp_fastclose", .vaddr = (size_t) symbol_asp_fastclose },
     { .name = "asp_input_poll", .vaddr = (size_t) symbol_asp_input_poll },
     { .name = "asp_input_get_nav", .vaddr = (size_t) symbol_asp_input_get_nav },
     { .name = "asp_input_get_action", .vaddr = (size_t) symbol_asp_input_get_action },
@@ -181,6 +185,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_badge = {
     .path        = "libbadge.so",
-    .symbols_len = 86,
+    .symbols_len = 88,
     .symbols     = symbols,
 };

@@ -57,6 +57,7 @@ pthread_attr_setdetachstate
 
 pthread_getschedparam
 pthread_setschedparam
+pthread_setschedprio
 # pthread_getname_np
 # pthread_setname_np
 
