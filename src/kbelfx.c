@@ -76,6 +76,12 @@ void kbelfx_free(void* mem) {
 // Takes a segment with requested address and permissions and returns a segment with physical and virtual address
 // information. Returns success status. User-defined.
 bool kbelfx_seg_alloc(kbelf_inst inst, size_t segs_len, kbelf_segment* segs) {
+    if (!kbelf_inst_is_pie(inst)) {
+        ESP_LOGE(TAG, "seg_alloc: attempt to load non-PIE object (not supported for BadgeELF)");
+        ESP_LOGE(TAG, "seg_alloc: please compile your code -fPIC and link with -pie or -shared");
+        return false;
+    }
+    
     // Determine memory requirements.
     size_t min_va = SIZE_MAX, max_va = 0, min_align = 16;
     for (size_t i = 0; i < segs_len; i++) {
