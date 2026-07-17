@@ -6,6 +6,41 @@
 extern char const symbol_sched_yield[] asm("sched_yield");
 extern char const symbol_sched_get_priority_min[] asm("sched_get_priority_min");
 extern char const symbol_sched_get_priority_max[] asm("sched_get_priority_max");
+extern char const symbol_abs[] asm("abs");
+extern char const symbol_labs[] asm("labs");
+extern char const symbol_llabs[] asm("llabs");
+extern char const symbol_atoi[] asm("atoi");
+extern char const symbol_atol[] asm("atol");
+extern char const symbol_bsearch[] asm("bsearch");
+extern char const symbol_div[] asm("div");
+extern char const symbol_ldiv[] asm("ldiv");
+extern char const symbol_lldiv[] asm("lldiv");
+extern char const symbol_atof[] asm("atof");
+extern char const symbol_atoff[] asm("atoff");
+extern char const symbol_rand[] asm("rand");
+extern char const symbol_qsort[] asm("qsort");
+extern char const symbol_srand[] asm("srand");
+extern char const symbol_strtod[] asm("strtod");
+extern char const symbol_strtof[] asm("strtof");
+extern char const symbol_strtol[] asm("strtol");
+extern char const symbol_strtoll[] asm("strtoll");
+extern char const symbol_strtoul[] asm("strtoul");
+extern char const symbol_strtoull[] asm("strtoull");
+extern char const symbol_strtod_l[] asm("strtod_l");
+extern char const symbol_strtof_l[] asm("strtof_l");
+extern char const symbol_strtold_l[] asm("strtold_l");
+extern char const symbol_strtol_l[] asm("strtol_l");
+extern char const symbol_strtoll_l[] asm("strtoll_l");
+extern char const symbol_strtoull_l[] asm("strtoull_l");
+extern char const symbol__strtod_r[] asm("_strtod_r");
+extern char const symbol__strtol_r[] asm("_strtol_r");
+extern char const symbol__strtoll_r[] asm("_strtoll_r");
+extern char const symbol__strtoul_r[] asm("_strtoul_r");
+extern char const symbol__strtoull_r[] asm("_strtoull_r");
+extern char const symbol_itoa[] asm("itoa");
+extern char const symbol_rand_r[] asm("rand_r");
+extern char const symbol_atoll[] asm("atoll");
+extern char const symbol_qsort_r[] asm("qsort_r");
 extern char const symbol___errno[] asm("__errno");
 extern char const symbol_open[] asm("open");
 extern char const symbol_creat[] asm("creat");
@@ -78,6 +113,7 @@ extern char const symbol_mallinfo[] asm("mallinfo");
 extern char const symbol_malloc_stats[] asm("malloc_stats");
 extern char const symbol_mallopt[] asm("mallopt");
 extern char const symbol_malloc_usable_size[] asm("malloc_usable_size");
+extern char const symbol_aligned_alloc[] asm("aligned_alloc");
 extern char const symbol___sinit[] asm("__sinit");
 extern char const symbol___sglue[] asm("__sglue");
 extern char const symbol__global_impure_ptr[] asm("_global_impure_ptr");
@@ -268,6 +304,41 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "sched_yield", .vaddr = (size_t) symbol_sched_yield },
     { .name = "sched_get_priority_min", .vaddr = (size_t) symbol_sched_get_priority_min },
     { .name = "sched_get_priority_max", .vaddr = (size_t) symbol_sched_get_priority_max },
+    { .name = "abs", .vaddr = (size_t) symbol_abs },
+    { .name = "labs", .vaddr = (size_t) symbol_labs },
+    { .name = "llabs", .vaddr = (size_t) symbol_llabs },
+    { .name = "atoi", .vaddr = (size_t) symbol_atoi },
+    { .name = "atol", .vaddr = (size_t) symbol_atol },
+    { .name = "bsearch", .vaddr = (size_t) symbol_bsearch },
+    { .name = "div", .vaddr = (size_t) symbol_div },
+    { .name = "ldiv", .vaddr = (size_t) symbol_ldiv },
+    { .name = "lldiv", .vaddr = (size_t) symbol_lldiv },
+    { .name = "atof", .vaddr = (size_t) symbol_atof },
+    { .name = "atoff", .vaddr = (size_t) symbol_atoff },
+    { .name = "rand", .vaddr = (size_t) symbol_rand },
+    { .name = "qsort", .vaddr = (size_t) symbol_qsort },
+    { .name = "srand", .vaddr = (size_t) symbol_srand },
+    { .name = "strtod", .vaddr = (size_t) symbol_strtod },
+    { .name = "strtof", .vaddr = (size_t) symbol_strtof },
+    { .name = "strtol", .vaddr = (size_t) symbol_strtol },
+    { .name = "strtoll", .vaddr = (size_t) symbol_strtoll },
+    { .name = "strtoul", .vaddr = (size_t) symbol_strtoul },
+    { .name = "strtoull", .vaddr = (size_t) symbol_strtoull },
+    { .name = "strtod_l", .vaddr = (size_t) symbol_strtod_l },
+    { .name = "strtof_l", .vaddr = (size_t) symbol_strtof_l },
+    { .name = "strtold_l", .vaddr = (size_t) symbol_strtold_l },
+    { .name = "strtol_l", .vaddr = (size_t) symbol_strtol_l },
+    { .name = "strtoll_l", .vaddr = (size_t) symbol_strtoll_l },
+    { .name = "strtoull_l", .vaddr = (size_t) symbol_strtoull_l },
+    { .name = "_strtod_r", .vaddr = (size_t) symbol__strtod_r },
+    { .name = "_strtol_r", .vaddr = (size_t) symbol__strtol_r },
+    { .name = "_strtoll_r", .vaddr = (size_t) symbol__strtoll_r },
+    { .name = "_strtoul_r", .vaddr = (size_t) symbol__strtoul_r },
+    { .name = "_strtoull_r", .vaddr = (size_t) symbol__strtoull_r },
+    { .name = "itoa", .vaddr = (size_t) symbol_itoa },
+    { .name = "rand_r", .vaddr = (size_t) symbol_rand_r },
+    { .name = "atoll", .vaddr = (size_t) symbol_atoll },
+    { .name = "qsort_r", .vaddr = (size_t) symbol_qsort_r },
     { .name = "__errno", .vaddr = (size_t) symbol___errno },
     { .name = "open", .vaddr = (size_t) symbol_open },
     { .name = "creat", .vaddr = (size_t) symbol_creat },
@@ -340,6 +411,7 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "malloc_stats", .vaddr = (size_t) symbol_malloc_stats },
     { .name = "mallopt", .vaddr = (size_t) symbol_mallopt },
     { .name = "malloc_usable_size", .vaddr = (size_t) symbol_malloc_usable_size },
+    { .name = "aligned_alloc", .vaddr = (size_t) symbol_aligned_alloc },
     { .name = "__sinit", .vaddr = (size_t) symbol___sinit },
     { .name = "__sglue", .vaddr = (size_t) symbol___sglue },
     { .name = "_global_impure_ptr", .vaddr = (size_t) symbol__global_impure_ptr },
@@ -529,6 +601,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_c = {
     .path        = "libc.so",
-    .symbols_len = 260,
+    .symbols_len = 296,
     .symbols     = symbols,
 };

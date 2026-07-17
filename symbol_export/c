@@ -9,6 +9,43 @@ sched_yield
 sched_get_priority_min
 sched_get_priority_max
 
+# <stdlib.h>
+abs
+labs
+llabs
+atoi
+atol
+bsearch
+div
+ldiv
+lldiv
+atof
+atoff
+rand
+qsort
+srand
+strtod
+strtof
+strtol
+strtoll
+strtoul
+strtoull
+strtod_l
+strtof_l
+strtold_l
+strtol_l
+strtoll_l
+strtoull_l
+_strtod_r
+_strtol_r
+_strtoll_r
+_strtoul_r
+_strtoull_r
+itoa
+rand_r
+atoll
+qsort_r
+
 # <sys/errno.h>
 __errno
 
@@ -96,6 +133,7 @@ mallinfo
 malloc_stats
 mallopt
 malloc_usable_size
+aligned_alloc
 
 # <reent.h>
 __sinit
