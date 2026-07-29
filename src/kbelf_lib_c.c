@@ -32,11 +32,6 @@ extern char const symbol_strtold_l[] asm("strtold_l");
 extern char const symbol_strtol_l[] asm("strtol_l");
 extern char const symbol_strtoll_l[] asm("strtoll_l");
 extern char const symbol_strtoull_l[] asm("strtoull_l");
-extern char const symbol__strtod_r[] asm("_strtod_r");
-extern char const symbol__strtol_r[] asm("_strtol_r");
-extern char const symbol__strtoll_r[] asm("_strtoll_r");
-extern char const symbol__strtoul_r[] asm("_strtoul_r");
-extern char const symbol__strtoull_r[] asm("_strtoull_r");
 extern char const symbol_itoa[] asm("itoa");
 extern char const symbol_rand_r[] asm("rand_r");
 extern char const symbol_atoll[] asm("atoll");
@@ -114,17 +109,10 @@ extern char const symbol_malloc_stats[] asm("malloc_stats");
 extern char const symbol_mallopt[] asm("mallopt");
 extern char const symbol_malloc_usable_size[] asm("malloc_usable_size");
 extern char const symbol_aligned_alloc[] asm("aligned_alloc");
-extern char const symbol___sinit[] asm("__sinit");
-extern char const symbol___sglue[] asm("__sglue");
 extern char const symbol__global_impure_ptr[] asm("_global_impure_ptr");
 extern char const symbol___getreent[] asm("__getreent");
-extern char const symbol___atexit[] asm("__atexit");
-extern char const symbol___atexit0[] asm("__atexit0");
-extern char const symbol__reclaim_reent[] asm("_reclaim_reent");
-extern char const symbol__fwalk_sglue[] asm("_fwalk_sglue");
 extern char const symbol_tmpfile[] asm("tmpfile");
 extern char const symbol_tmpnam[] asm("tmpnam");
-extern char const symbol_tempnam[] asm("tempnam");
 extern char const symbol_fclose[] asm("fclose");
 extern char const symbol_fflush[] asm("fflush");
 extern char const symbol_freopen[] asm("freopen");
@@ -166,7 +154,6 @@ extern char const symbol_remove[] asm("remove");
 extern char const symbol_rename[] asm("rename");
 extern char const symbol_fseeko[] asm("fseeko");
 extern char const symbol_ftello[] asm("ftello");
-extern char const symbol_fcloseall[] asm("fcloseall");
 extern char const symbol_snprintf[] asm("snprintf");
 extern char const symbol_vsnprintf[] asm("vsnprintf");
 extern char const symbol_vfscanf[] asm("vfscanf");
@@ -178,121 +165,18 @@ extern char const symbol_fdopen[] asm("fdopen");
 extern char const symbol_fileno[] asm("fileno");
 extern char const symbol_setbuffer[] asm("setbuffer");
 extern char const symbol_setlinebuf[] asm("setlinebuf");
-extern char const symbol_getw[] asm("getw");
-extern char const symbol_putw[] asm("putw");
 extern char const symbol_getc_unlocked[] asm("getc_unlocked");
 extern char const symbol_getchar_unlocked[] asm("getchar_unlocked");
 extern char const symbol_putc_unlocked[] asm("putc_unlocked");
 extern char const symbol_putchar_unlocked[] asm("putchar_unlocked");
-extern char const symbol_dprintf[] asm("dprintf");
 extern char const symbol_fmemopen[] asm("fmemopen");
 extern char const symbol_open_memstream[] asm("open_memstream");
-extern char const symbol_vdprintf[] asm("vdprintf");
-extern char const symbol__asiprintf_r[] asm("_asiprintf_r");
-extern char const symbol__asniprintf_r[] asm("_asniprintf_r");
-extern char const symbol__asnprintf_r[] asm("_asnprintf_r");
-extern char const symbol__asprintf_r[] asm("_asprintf_r");
-extern char const symbol__diprintf_r[] asm("_diprintf_r");
-extern char const symbol__dprintf_r[] asm("_dprintf_r");
-extern char const symbol__fclose_r[] asm("_fclose_r");
-extern char const symbol__fcloseall_r[] asm("_fcloseall_r");
-extern char const symbol__fdopen_r[] asm("_fdopen_r");
-extern char const symbol__fflush_r[] asm("_fflush_r");
-extern char const symbol__fgetc_r[] asm("_fgetc_r");
-extern char const symbol__fgetc_unlocked_r[] asm("_fgetc_unlocked_r");
-extern char const symbol__fgets_r[] asm("_fgets_r");
-extern char const symbol__fgets_unlocked_r[] asm("_fgets_unlocked_r");
-extern char const symbol__fgetpos_r[] asm("_fgetpos_r");
-extern char const symbol__fsetpos_r[] asm("_fsetpos_r");
-extern char const symbol__fiprintf_r[] asm("_fiprintf_r");
-extern char const symbol__fiscanf_r[] asm("_fiscanf_r");
-extern char const symbol__fmemopen_r[] asm("_fmemopen_r");
-extern char const symbol__fopen_r[] asm("_fopen_r");
-extern char const symbol__freopen_r[] asm("_freopen_r");
-extern char const symbol__fprintf_r[] asm("_fprintf_r");
-extern char const symbol__fpurge_r[] asm("_fpurge_r");
-extern char const symbol__fputc_r[] asm("_fputc_r");
-extern char const symbol__fputc_unlocked_r[] asm("_fputc_unlocked_r");
-extern char const symbol__fputs_r[] asm("_fputs_r");
-extern char const symbol__fputs_unlocked_r[] asm("_fputs_unlocked_r");
-extern char const symbol__fread_r[] asm("_fread_r");
-extern char const symbol__fread_unlocked_r[] asm("_fread_unlocked_r");
-extern char const symbol__fscanf_r[] asm("_fscanf_r");
-extern char const symbol__fseek_r[] asm("_fseek_r");
-extern char const symbol__fseeko_r[] asm("_fseeko_r");
-extern char const symbol__ftell_r[] asm("_ftell_r");
-extern char const symbol__ftello_r[] asm("_ftello_r");
-extern char const symbol__rewind_r[] asm("_rewind_r");
-extern char const symbol__fwrite_r[] asm("_fwrite_r");
-extern char const symbol__fwrite_unlocked_r[] asm("_fwrite_unlocked_r");
-extern char const symbol__getc_r[] asm("_getc_r");
-extern char const symbol__getc_unlocked_r[] asm("_getc_unlocked_r");
-extern char const symbol__getchar_r[] asm("_getchar_r");
-extern char const symbol__getchar_unlocked_r[] asm("_getchar_unlocked_r");
-extern char const symbol__gets_r[] asm("_gets_r");
-extern char const symbol__iprintf_r[] asm("_iprintf_r");
-extern char const symbol__iscanf_r[] asm("_iscanf_r");
-extern char const symbol__open_memstream_r[] asm("_open_memstream_r");
-extern char const symbol__perror_r[] asm("_perror_r");
-extern char const symbol__printf_r[] asm("_printf_r");
-extern char const symbol__putc_r[] asm("_putc_r");
-extern char const symbol__putc_unlocked_r[] asm("_putc_unlocked_r");
-extern char const symbol__putchar_unlocked_r[] asm("_putchar_unlocked_r");
-extern char const symbol__putchar_r[] asm("_putchar_r");
-extern char const symbol__puts_r[] asm("_puts_r");
-extern char const symbol__remove_r[] asm("_remove_r");
 extern char const symbol__rename_r[] asm("_rename_r");
-extern char const symbol__scanf_r[] asm("_scanf_r");
-extern char const symbol__siprintf_r[] asm("_siprintf_r");
-extern char const symbol__siscanf_r[] asm("_siscanf_r");
-extern char const symbol__sniprintf_r[] asm("_sniprintf_r");
-extern char const symbol__snprintf_r[] asm("_snprintf_r");
-extern char const symbol__sprintf_r[] asm("_sprintf_r");
-extern char const symbol__sscanf_r[] asm("_sscanf_r");
-extern char const symbol__tempnam_r[] asm("_tempnam_r");
-extern char const symbol__tmpfile_r[] asm("_tmpfile_r");
-extern char const symbol__tmpnam_r[] asm("_tmpnam_r");
-extern char const symbol__ungetc_r[] asm("_ungetc_r");
-extern char const symbol__vasiprintf_r[] asm("_vasiprintf_r");
-extern char const symbol__vasniprintf_r[] asm("_vasniprintf_r");
-extern char const symbol__vasnprintf_r[] asm("_vasnprintf_r");
-extern char const symbol__vasprintf_r[] asm("_vasprintf_r");
-extern char const symbol__vdiprintf_r[] asm("_vdiprintf_r");
-extern char const symbol__vdprintf_r[] asm("_vdprintf_r");
-extern char const symbol__vfiprintf_r[] asm("_vfiprintf_r");
-extern char const symbol__vfiscanf_r[] asm("_vfiscanf_r");
-extern char const symbol__vfprintf_r[] asm("_vfprintf_r");
-extern char const symbol__vfscanf_r[] asm("_vfscanf_r");
-extern char const symbol__viprintf_r[] asm("_viprintf_r");
-extern char const symbol__viscanf_r[] asm("_viscanf_r");
-extern char const symbol__vprintf_r[] asm("_vprintf_r");
-extern char const symbol__vscanf_r[] asm("_vscanf_r");
-extern char const symbol__vsiprintf_r[] asm("_vsiprintf_r");
-extern char const symbol__vsiscanf_r[] asm("_vsiscanf_r");
-extern char const symbol__vsniprintf_r[] asm("_vsniprintf_r");
-extern char const symbol__vsnprintf_r[] asm("_vsnprintf_r");
-extern char const symbol__vsprintf_r[] asm("_vsprintf_r");
-extern char const symbol__vsscanf_r[] asm("_vsscanf_r");
-extern char const symbol_fpurge[] asm("fpurge");
-extern char const symbol___getdelim[] asm("__getdelim");
-extern char const symbol___getline[] asm("__getline");
 extern char const symbol_clearerr_unlocked[] asm("clearerr_unlocked");
 extern char const symbol_feof_unlocked[] asm("feof_unlocked");
 extern char const symbol_ferror_unlocked[] asm("ferror_unlocked");
-extern char const symbol_fileno_unlocked[] asm("fileno_unlocked");
-extern char const symbol_fflush_unlocked[] asm("fflush_unlocked");
-extern char const symbol_fgetc_unlocked[] asm("fgetc_unlocked");
-extern char const symbol_fputc_unlocked[] asm("fputc_unlocked");
-extern char const symbol_fread_unlocked[] asm("fread_unlocked");
-extern char const symbol_fwrite_unlocked[] asm("fwrite_unlocked");
-extern char const symbol_fgets_unlocked[] asm("fgets_unlocked");
-extern char const symbol_fputs_unlocked[] asm("fputs_unlocked");
-extern char const symbol___srget_r[] asm("__srget_r");
-extern char const symbol___swbuf_r[] asm("__swbuf_r");
 extern char const symbol_funopen[] asm("funopen");
-extern char const symbol__funopen_r[] asm("_funopen_r");
 extern char const symbol_fopencookie[] asm("fopencookie");
-extern char const symbol__fopencookie_r[] asm("_fopencookie_r");
 extern char const symbol_time[] asm("time");
 extern char const symbol_localtime_r[] asm("localtime_r");
 extern char const symbol_gmtime_r[] asm("gmtime_r");
@@ -330,11 +214,6 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "strtol_l", .vaddr = (size_t) symbol_strtol_l },
     { .name = "strtoll_l", .vaddr = (size_t) symbol_strtoll_l },
     { .name = "strtoull_l", .vaddr = (size_t) symbol_strtoull_l },
-    { .name = "_strtod_r", .vaddr = (size_t) symbol__strtod_r },
-    { .name = "_strtol_r", .vaddr = (size_t) symbol__strtol_r },
-    { .name = "_strtoll_r", .vaddr = (size_t) symbol__strtoll_r },
-    { .name = "_strtoul_r", .vaddr = (size_t) symbol__strtoul_r },
-    { .name = "_strtoull_r", .vaddr = (size_t) symbol__strtoull_r },
     { .name = "itoa", .vaddr = (size_t) symbol_itoa },
     { .name = "rand_r", .vaddr = (size_t) symbol_rand_r },
     { .name = "atoll", .vaddr = (size_t) symbol_atoll },
@@ -412,17 +291,10 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "mallopt", .vaddr = (size_t) symbol_mallopt },
     { .name = "malloc_usable_size", .vaddr = (size_t) symbol_malloc_usable_size },
     { .name = "aligned_alloc", .vaddr = (size_t) symbol_aligned_alloc },
-    { .name = "__sinit", .vaddr = (size_t) symbol___sinit },
-    { .name = "__sglue", .vaddr = (size_t) symbol___sglue },
     { .name = "_global_impure_ptr", .vaddr = (size_t) symbol__global_impure_ptr },
     { .name = "__getreent", .vaddr = (size_t) symbol___getreent },
-    { .name = "__atexit", .vaddr = (size_t) symbol___atexit },
-    { .name = "__atexit0", .vaddr = (size_t) symbol___atexit0 },
-    { .name = "_reclaim_reent", .vaddr = (size_t) symbol__reclaim_reent },
-    { .name = "_fwalk_sglue", .vaddr = (size_t) symbol__fwalk_sglue },
     { .name = "tmpfile", .vaddr = (size_t) symbol_tmpfile },
     { .name = "tmpnam", .vaddr = (size_t) symbol_tmpnam },
-    { .name = "tempnam", .vaddr = (size_t) symbol_tempnam },
     { .name = "fclose", .vaddr = (size_t) symbol_fclose },
     { .name = "fflush", .vaddr = (size_t) symbol_fflush },
     { .name = "freopen", .vaddr = (size_t) symbol_freopen },
@@ -464,7 +336,6 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "rename", .vaddr = (size_t) symbol_rename },
     { .name = "fseeko", .vaddr = (size_t) symbol_fseeko },
     { .name = "ftello", .vaddr = (size_t) symbol_ftello },
-    { .name = "fcloseall", .vaddr = (size_t) symbol_fcloseall },
     { .name = "snprintf", .vaddr = (size_t) symbol_snprintf },
     { .name = "vsnprintf", .vaddr = (size_t) symbol_vsnprintf },
     { .name = "vfscanf", .vaddr = (size_t) symbol_vfscanf },
@@ -476,121 +347,18 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "fileno", .vaddr = (size_t) symbol_fileno },
     { .name = "setbuffer", .vaddr = (size_t) symbol_setbuffer },
     { .name = "setlinebuf", .vaddr = (size_t) symbol_setlinebuf },
-    { .name = "getw", .vaddr = (size_t) symbol_getw },
-    { .name = "putw", .vaddr = (size_t) symbol_putw },
     { .name = "getc_unlocked", .vaddr = (size_t) symbol_getc_unlocked },
     { .name = "getchar_unlocked", .vaddr = (size_t) symbol_getchar_unlocked },
     { .name = "putc_unlocked", .vaddr = (size_t) symbol_putc_unlocked },
     { .name = "putchar_unlocked", .vaddr = (size_t) symbol_putchar_unlocked },
-    { .name = "dprintf", .vaddr = (size_t) symbol_dprintf },
     { .name = "fmemopen", .vaddr = (size_t) symbol_fmemopen },
     { .name = "open_memstream", .vaddr = (size_t) symbol_open_memstream },
-    { .name = "vdprintf", .vaddr = (size_t) symbol_vdprintf },
-    { .name = "_asiprintf_r", .vaddr = (size_t) symbol__asiprintf_r },
-    { .name = "_asniprintf_r", .vaddr = (size_t) symbol__asniprintf_r },
-    { .name = "_asnprintf_r", .vaddr = (size_t) symbol__asnprintf_r },
-    { .name = "_asprintf_r", .vaddr = (size_t) symbol__asprintf_r },
-    { .name = "_diprintf_r", .vaddr = (size_t) symbol__diprintf_r },
-    { .name = "_dprintf_r", .vaddr = (size_t) symbol__dprintf_r },
-    { .name = "_fclose_r", .vaddr = (size_t) symbol__fclose_r },
-    { .name = "_fcloseall_r", .vaddr = (size_t) symbol__fcloseall_r },
-    { .name = "_fdopen_r", .vaddr = (size_t) symbol__fdopen_r },
-    { .name = "_fflush_r", .vaddr = (size_t) symbol__fflush_r },
-    { .name = "_fgetc_r", .vaddr = (size_t) symbol__fgetc_r },
-    { .name = "_fgetc_unlocked_r", .vaddr = (size_t) symbol__fgetc_unlocked_r },
-    { .name = "_fgets_r", .vaddr = (size_t) symbol__fgets_r },
-    { .name = "_fgets_unlocked_r", .vaddr = (size_t) symbol__fgets_unlocked_r },
-    { .name = "_fgetpos_r", .vaddr = (size_t) symbol__fgetpos_r },
-    { .name = "_fsetpos_r", .vaddr = (size_t) symbol__fsetpos_r },
-    { .name = "_fiprintf_r", .vaddr = (size_t) symbol__fiprintf_r },
-    { .name = "_fiscanf_r", .vaddr = (size_t) symbol__fiscanf_r },
-    { .name = "_fmemopen_r", .vaddr = (size_t) symbol__fmemopen_r },
-    { .name = "_fopen_r", .vaddr = (size_t) symbol__fopen_r },
-    { .name = "_freopen_r", .vaddr = (size_t) symbol__freopen_r },
-    { .name = "_fprintf_r", .vaddr = (size_t) symbol__fprintf_r },
-    { .name = "_fpurge_r", .vaddr = (size_t) symbol__fpurge_r },
-    { .name = "_fputc_r", .vaddr = (size_t) symbol__fputc_r },
-    { .name = "_fputc_unlocked_r", .vaddr = (size_t) symbol__fputc_unlocked_r },
-    { .name = "_fputs_r", .vaddr = (size_t) symbol__fputs_r },
-    { .name = "_fputs_unlocked_r", .vaddr = (size_t) symbol__fputs_unlocked_r },
-    { .name = "_fread_r", .vaddr = (size_t) symbol__fread_r },
-    { .name = "_fread_unlocked_r", .vaddr = (size_t) symbol__fread_unlocked_r },
-    { .name = "_fscanf_r", .vaddr = (size_t) symbol__fscanf_r },
-    { .name = "_fseek_r", .vaddr = (size_t) symbol__fseek_r },
-    { .name = "_fseeko_r", .vaddr = (size_t) symbol__fseeko_r },
-    { .name = "_ftell_r", .vaddr = (size_t) symbol__ftell_r },
-    { .name = "_ftello_r", .vaddr = (size_t) symbol__ftello_r },
-    { .name = "_rewind_r", .vaddr = (size_t) symbol__rewind_r },
-    { .name = "_fwrite_r", .vaddr = (size_t) symbol__fwrite_r },
-    { .name = "_fwrite_unlocked_r", .vaddr = (size_t) symbol__fwrite_unlocked_r },
-    { .name = "_getc_r", .vaddr = (size_t) symbol__getc_r },
-    { .name = "_getc_unlocked_r", .vaddr = (size_t) symbol__getc_unlocked_r },
-    { .name = "_getchar_r", .vaddr = (size_t) symbol__getchar_r },
-    { .name = "_getchar_unlocked_r", .vaddr = (size_t) symbol__getchar_unlocked_r },
-    { .name = "_gets_r", .vaddr = (size_t) symbol__gets_r },
-    { .name = "_iprintf_r", .vaddr = (size_t) symbol__iprintf_r },
-    { .name = "_iscanf_r", .vaddr = (size_t) symbol__iscanf_r },
-    { .name = "_open_memstream_r", .vaddr = (size_t) symbol__open_memstream_r },
-    { .name = "_perror_r", .vaddr = (size_t) symbol__perror_r },
-    { .name = "_printf_r", .vaddr = (size_t) symbol__printf_r },
-    { .name = "_putc_r", .vaddr = (size_t) symbol__putc_r },
-    { .name = "_putc_unlocked_r", .vaddr = (size_t) symbol__putc_unlocked_r },
-    { .name = "_putchar_unlocked_r", .vaddr = (size_t) symbol__putchar_unlocked_r },
-    { .name = "_putchar_r", .vaddr = (size_t) symbol__putchar_r },
-    { .name = "_puts_r", .vaddr = (size_t) symbol__puts_r },
-    { .name = "_remove_r", .vaddr = (size_t) symbol__remove_r },
     { .name = "_rename_r", .vaddr = (size_t) symbol__rename_r },
-    { .name = "_scanf_r", .vaddr = (size_t) symbol__scanf_r },
-    { .name = "_siprintf_r", .vaddr = (size_t) symbol__siprintf_r },
-    { .name = "_siscanf_r", .vaddr = (size_t) symbol__siscanf_r },
-    { .name = "_sniprintf_r", .vaddr = (size_t) symbol__sniprintf_r },
-    { .name = "_snprintf_r", .vaddr = (size_t) symbol__snprintf_r },
-    { .name = "_sprintf_r", .vaddr = (size_t) symbol__sprintf_r },
-    { .name = "_sscanf_r", .vaddr = (size_t) symbol__sscanf_r },
-    { .name = "_tempnam_r", .vaddr = (size_t) symbol__tempnam_r },
-    { .name = "_tmpfile_r", .vaddr = (size_t) symbol__tmpfile_r },
-    { .name = "_tmpnam_r", .vaddr = (size_t) symbol__tmpnam_r },
-    { .name = "_ungetc_r", .vaddr = (size_t) symbol__ungetc_r },
-    { .name = "_vasiprintf_r", .vaddr = (size_t) symbol__vasiprintf_r },
-    { .name = "_vasniprintf_r", .vaddr = (size_t) symbol__vasniprintf_r },
-    { .name = "_vasnprintf_r", .vaddr = (size_t) symbol__vasnprintf_r },
-    { .name = "_vasprintf_r", .vaddr = (size_t) symbol__vasprintf_r },
-    { .name = "_vdiprintf_r", .vaddr = (size_t) symbol__vdiprintf_r },
-    { .name = "_vdprintf_r", .vaddr = (size_t) symbol__vdprintf_r },
-    { .name = "_vfiprintf_r", .vaddr = (size_t) symbol__vfiprintf_r },
-    { .name = "_vfiscanf_r", .vaddr = (size_t) symbol__vfiscanf_r },
-    { .name = "_vfprintf_r", .vaddr = (size_t) symbol__vfprintf_r },
-    { .name = "_vfscanf_r", .vaddr = (size_t) symbol__vfscanf_r },
-    { .name = "_viprintf_r", .vaddr = (size_t) symbol__viprintf_r },
-    { .name = "_viscanf_r", .vaddr = (size_t) symbol__viscanf_r },
-    { .name = "_vprintf_r", .vaddr = (size_t) symbol__vprintf_r },
-    { .name = "_vscanf_r", .vaddr = (size_t) symbol__vscanf_r },
-    { .name = "_vsiprintf_r", .vaddr = (size_t) symbol__vsiprintf_r },
-    { .name = "_vsiscanf_r", .vaddr = (size_t) symbol__vsiscanf_r },
-    { .name = "_vsniprintf_r", .vaddr = (size_t) symbol__vsniprintf_r },
-    { .name = "_vsnprintf_r", .vaddr = (size_t) symbol__vsnprintf_r },
-    { .name = "_vsprintf_r", .vaddr = (size_t) symbol__vsprintf_r },
-    { .name = "_vsscanf_r", .vaddr = (size_t) symbol__vsscanf_r },
-    { .name = "fpurge", .vaddr = (size_t) symbol_fpurge },
-    { .name = "__getdelim", .vaddr = (size_t) symbol___getdelim },
-    { .name = "__getline", .vaddr = (size_t) symbol___getline },
     { .name = "clearerr_unlocked", .vaddr = (size_t) symbol_clearerr_unlocked },
     { .name = "feof_unlocked", .vaddr = (size_t) symbol_feof_unlocked },
     { .name = "ferror_unlocked", .vaddr = (size_t) symbol_ferror_unlocked },
-    { .name = "fileno_unlocked", .vaddr = (size_t) symbol_fileno_unlocked },
-    { .name = "fflush_unlocked", .vaddr = (size_t) symbol_fflush_unlocked },
-    { .name = "fgetc_unlocked", .vaddr = (size_t) symbol_fgetc_unlocked },
-    { .name = "fputc_unlocked", .vaddr = (size_t) symbol_fputc_unlocked },
-    { .name = "fread_unlocked", .vaddr = (size_t) symbol_fread_unlocked },
-    { .name = "fwrite_unlocked", .vaddr = (size_t) symbol_fwrite_unlocked },
-    { .name = "fgets_unlocked", .vaddr = (size_t) symbol_fgets_unlocked },
-    { .name = "fputs_unlocked", .vaddr = (size_t) symbol_fputs_unlocked },
-    { .name = "__srget_r", .vaddr = (size_t) symbol___srget_r },
-    { .name = "__swbuf_r", .vaddr = (size_t) symbol___swbuf_r },
     { .name = "funopen", .vaddr = (size_t) symbol_funopen },
-    { .name = "_funopen_r", .vaddr = (size_t) symbol__funopen_r },
     { .name = "fopencookie", .vaddr = (size_t) symbol_fopencookie },
-    { .name = "_fopencookie_r", .vaddr = (size_t) symbol__fopencookie_r },
     { .name = "time", .vaddr = (size_t) symbol_time },
     { .name = "localtime_r", .vaddr = (size_t) symbol_localtime_r },
     { .name = "gmtime_r", .vaddr = (size_t) symbol_gmtime_r },
@@ -601,6 +369,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_c = {
     .path        = "libc.so",
-    .symbols_len = 296,
+    .symbols_len = 180,
     .symbols     = symbols,
 };

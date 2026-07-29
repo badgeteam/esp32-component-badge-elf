@@ -51,7 +51,6 @@ extern char const symbol_nextafter[] asm("nextafter");
 extern char const symbol_rint[] asm("rint");
 extern char const symbol_scalbn[] asm("scalbn");
 extern char const symbol_exp2[] asm("exp2");
-extern char const symbol_scalbln[] asm("scalbln");
 extern char const symbol_tgamma[] asm("tgamma");
 extern char const symbol_nearbyint[] asm("nearbyint");
 extern char const symbol_lrint[] asm("lrint");
@@ -194,9 +193,7 @@ extern char const symbol_erfcl[] asm("erfcl");
 extern char const symbol_hypotl[] asm("hypotl");
 extern char const symbol_drem[] asm("drem");
 extern char const symbol_dremf[] asm("dremf");
-extern char const symbol_gamma_r[] asm("gamma_r");
 extern char const symbol_lgamma_r[] asm("lgamma_r");
-extern char const symbol_gammaf_r[] asm("gammaf_r");
 extern char const symbol_lgammaf_r[] asm("lgammaf_r");
 extern char const symbol_y0[] asm("y0");
 extern char const symbol_y1[] asm("y1");
@@ -267,7 +264,6 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "rint", .vaddr = (size_t) symbol_rint },
     { .name = "scalbn", .vaddr = (size_t) symbol_scalbn },
     { .name = "exp2", .vaddr = (size_t) symbol_exp2 },
-    { .name = "scalbln", .vaddr = (size_t) symbol_scalbln },
     { .name = "tgamma", .vaddr = (size_t) symbol_tgamma },
     { .name = "nearbyint", .vaddr = (size_t) symbol_nearbyint },
     { .name = "lrint", .vaddr = (size_t) symbol_lrint },
@@ -410,9 +406,7 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "hypotl", .vaddr = (size_t) symbol_hypotl },
     { .name = "drem", .vaddr = (size_t) symbol_drem },
     { .name = "dremf", .vaddr = (size_t) symbol_dremf },
-    { .name = "gamma_r", .vaddr = (size_t) symbol_gamma_r },
     { .name = "lgamma_r", .vaddr = (size_t) symbol_lgamma_r },
-    { .name = "gammaf_r", .vaddr = (size_t) symbol_gammaf_r },
     { .name = "lgammaf_r", .vaddr = (size_t) symbol_lgammaf_r },
     { .name = "y0", .vaddr = (size_t) symbol_y0 },
     { .name = "y1", .vaddr = (size_t) symbol_y1 },
@@ -437,6 +431,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_m = {
     .path        = "libm.so",
-    .symbols_len = 214,
+    .symbols_len = 211,
     .symbols     = symbols,
 };
