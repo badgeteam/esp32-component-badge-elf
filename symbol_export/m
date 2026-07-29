@@ -53,7 +53,6 @@ nextafter
 rint
 scalbn
 exp2
-scalbln
 tgamma
 nearbyint
 lrint
@@ -196,9 +195,7 @@ erfcl
 hypotl
 drem
 dremf
-gamma_r
 lgamma_r
-gammaf_r
 lgammaf_r
 y0
 y1
