@@ -9,6 +9,11 @@ sched_yield
 sched_get_priority_min
 sched_get_priority_max
 
+# <time.h>
+clock_getres
+clock_gettime
+clock_settime
+
 # <stdlib.h>
 abs
 labs

@@ -6,6 +6,9 @@
 extern char const symbol_sched_yield[] asm("sched_yield");
 extern char const symbol_sched_get_priority_min[] asm("sched_get_priority_min");
 extern char const symbol_sched_get_priority_max[] asm("sched_get_priority_max");
+extern char const symbol_clock_getres[] asm("clock_getres");
+extern char const symbol_clock_gettime[] asm("clock_gettime");
+extern char const symbol_clock_settime[] asm("clock_settime");
 extern char const symbol_abs[] asm("abs");
 extern char const symbol_labs[] asm("labs");
 extern char const symbol_llabs[] asm("llabs");
@@ -188,6 +191,9 @@ static kbelf_builtin_sym const symbols[] = {
     { .name = "sched_yield", .vaddr = (size_t) symbol_sched_yield },
     { .name = "sched_get_priority_min", .vaddr = (size_t) symbol_sched_get_priority_min },
     { .name = "sched_get_priority_max", .vaddr = (size_t) symbol_sched_get_priority_max },
+    { .name = "clock_getres", .vaddr = (size_t) symbol_clock_getres },
+    { .name = "clock_gettime", .vaddr = (size_t) symbol_clock_gettime },
+    { .name = "clock_settime", .vaddr = (size_t) symbol_clock_settime },
     { .name = "abs", .vaddr = (size_t) symbol_abs },
     { .name = "labs", .vaddr = (size_t) symbol_labs },
     { .name = "llabs", .vaddr = (size_t) symbol_llabs },
@@ -369,6 +375,6 @@ static kbelf_builtin_sym const symbols[] = {
 
 kbelf_builtin_lib const badge_elf_lib_c = {
     .path        = "libc.so",
-    .symbols_len = 180,
+    .symbols_len = 183,
     .symbols     = symbols,
 };
